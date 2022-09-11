@@ -21,6 +21,8 @@
 
 <body>
 
+    <div id="filter" style="display: none;"></div>
+
     <nav>
         <div class="nav-wrapper">
             <div id="nav-bar" class="nav-grid">
@@ -118,6 +120,7 @@
         <div id="result"></div>
     </div>
 
+
     <footer>
         <div class="footer-top">
 
@@ -176,6 +179,7 @@
                 <a href="#">Built by BMJ</a>
             </div>
         </div>
+
 
     </footer>
 
@@ -254,14 +258,13 @@
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="delete-modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">DELETE LISTING</h5>
                 </div>
-                <div class="modal-body">
-
-                </div>
-                <div class="modal-footer">
+                <div class="delete-modal-body">
+                    <p class="confirm-delete-text">Are you sure you want to delete <br> this listing?</p>
+                    <button type="button" class="btn btn-secondary delete-modal-cancel-button"
+                        data-bs-dismiss="modal">CANCEL</button>
                     <button id="submitDelete" name="submitDeleteButton" type="submit"
                         class="btn btn-primary delete-button" data-bs-dismiss="modal">CONFIRM</button>
 

@@ -105,4 +105,20 @@ header {
 .filter-expand {
     max-height: 91px !important;
     transition: .2s ease;
+
+}
+
+
+// LOGIN PAGE CSS 
+#tools {
+    background-color: #FDFBFC;
+    width: 100%;
+    height: 710px;
+}
+
+.login-banner {
+    width: 100%;
+    height: 70px;
+    background-color: $green;
+
 }

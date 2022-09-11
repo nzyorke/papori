@@ -1,0 +1,103 @@
+@import '../css/modules/fonts.scss';
+@import '../css/modules/variables.scss';
+@import '../css/modules/modals.scss';
+@import '../css/modules/nav.scss';
+@import '../css/modules/index.scss';
+@import '../css/modules/shop.scss';
+@import '../css/modules/account.scss';
+@import '../css/modules/account-settings.scss';
+@import '../css/modules/footer.scss';
+
+
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    margin: 0;
+}
+
+h2{
+    margin: 0;   
+}
+
+h3{
+    margin: 0;   
+}
+
+h4{
+    margin: 0;   
+    font-family: $jakarta;
+}
+
+h5{
+    margin: 0;   
+}
+
+h6{
+    margin: 0;    
+}
+
+p{
+    margin: 0;
+    font-family: $jakarta;
+}
+
+header{
+    height: 100px;
+    border-bottom: solid $blue 2px;
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-title{
+    color: $blue;
+    margin-left: 5%;
+}
+
+.filer{
+    margin-right: 5%;
+position: relative;
+    span{
+        margin-left: 5px;
+    }
+    button{
+        width: 135px;
+        all: unset;
+        color: $white;
+        background: $blue;
+        padding: 10px 20px 10px 20px;
+        display: flex;
+    }
+}
+
+.filter-dropdown{
+    background: $blue;
+    color: $white;
+    position: absolute;
+    z-index: 99;
+    width: 135px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: .2s ease;
+    ul{
+        padding: 0 10px;
+    }
+    li{
+        list-style: none;
+        border-bottom: solid 1px $white;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.filter-expand{
+max-height: 91px!important;
+transition: .2s ease;
+}

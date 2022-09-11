@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body>
+
+ <nav>
+      <div class="nav-wrapper">
+        <div id="nav-bar" class="nav-grid">
+          <div class="nav-options">
+            <ul>
+                <li>SHOP</li>
+                <li>ABOUT</li>
+                <li>CONTACT</li>
+            </ul>
+          </div>
+          <div class="nav-logo">
+            <img src="../frontend/media/nav-logo.svg" alt="nav logo">
+          </div>
+          <div class="nav-tools">
+            <div id="nav-search" class="search-button">
+                <p id="search-type">SEARCH<p>
+              <span  class="material-symbols-outlined"> search </span>
+            </div>
+            <div id="user-details" class="account-button">
+              <span class="material-symbols-outlined"> account_circle </span>
+            </div>
+        </div>
+            <div class="search-row">
+                <div class="search-message">
+                    <h2>Search our community for local buisnesses or products.</h2>
+                </div>
+                <div class="search-bar">
+                    <input id="search-bar-input" type="search" name="search-bar" placeholder="Search Pāpori..." value=""><i id="search-button-input" class="bi bi-search pointer"></i>
+          </div>
+                </div>
+                <div id="search-notifications"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div id="tools">
+        <h1>Login</h1>
+        <h2>Sign into The Neighbourhood</h2>
+        <br>
+        <form id="login-form" action="javascript:void(0);">
+            <label for="username-input">Username: </label>
+            <input id="username-input" name="username-input" type="text">
+            <label for="password-input">Password: </label>
+            <input id="password-input" name="password-input" type="password">
+            <button id="login-button">Login</button>
+        </form>
+    </div>
+
+    <!-- jquery -->
+    <script src="https://kit.fontawesome.com/ab86417da5.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/login.js"></script>
+</body>
+
+</html>

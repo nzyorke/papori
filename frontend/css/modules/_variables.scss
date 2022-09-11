@@ -1,0 +1,31 @@
+$tan: #DAD5CA;
+$white: #FDFBFC;
+$red: #A7432B;
+$green: #7D876E;
+$blue: #1C2536;
+$pink: #FFCCBE;
+
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin flex-row-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-column-reverse {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+@mixin flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}

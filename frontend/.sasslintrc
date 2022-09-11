@@ -1,0 +1,8 @@
+{
+    "rules": {
+        "indentation": 4,
+        "no-ids": 0,
+        "property-sort-order": 0,
+        "final-newline": 0
+    }
+}

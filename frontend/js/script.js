@@ -405,8 +405,7 @@ let checkLogin = () => {
     navContent = `
         <div class="account-button" id="nav-img-acc">
       <span id="username">${sessionStorage.userName.toUpperCase()}</span>
-      <span id="dp" style="background-image: url('${
-        sessionStorage.profileImg
+      <span id="dp" style="background-image: url('${sessionStorage.profileImg
       }')"></span>
       </div>
       `;
@@ -465,3 +464,16 @@ accountImg.onclick = function () {
 function accountExpand() {
   accountDetails.classList.toggle("account-expand");
 }
+
+let footerTopInfo1 = document.getElementsByClassName(`footer-top-info1`);
+
+for (let i = 0; i < footerTopInfo1.length; i++) {
+  const element = footerTopInfo1[i];
+  element.addEventListener('click', function () {
+    this.classList.toggle('active');
+    console.log('clicked');
+  })
+
+}
+
+console.log('hello');

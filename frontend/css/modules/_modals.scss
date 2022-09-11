@@ -1,4 +1,4 @@
-// EDIT PRODUCT MODAL
+// EDIT PRODUCT MODAL  -------------------------------------------------------------------
 .modal-content {
     border-radius: 0px;
 }
@@ -80,4 +80,56 @@ label {
 
 .edit-modal-button2 {
     margin-left: 41px;
+}
+
+// DELETE MODAL  -------------------------------------------------------------------
+
+
+#deleteModalLabel {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-weight: normal;
+    padding-top: 15px;
+}
+
+.delete-modal-header {
+    border-bottom: 2px solid white;
+    background-color: #7D876E;
+    border-radius: 0px;
+    font-family: $jakarta;
+}
+
+.delete-modal-body {
+    background-color: #7D876E;
+    height: 170px;
+}
+
+.confirm-delete-text {
+    text-align: center;
+    color: white;
+    padding-top: 30px;
+    font-family: $jakarta;
+    padding-bottom: 10px;
+}
+
+.delete-modal-cancel-button,
+.delete-button {
+    background-color: $blue;
+    color: white;
+    font-family: $jakarta;
+    border-radius: 0px;
+    font-size: 13px;
+    padding: 11px;
+    width: 30%;
+    border: none;
+}
+
+.delete-modal-cancel-button {
+    margin-left: 65px;
+}
+
+.delete-button {
+    margin-left: 20px;
 }

@@ -5,6 +5,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 .modal-content {
   border-radius: 0px;
 }
@@ -88,6 +89,55 @@ label {
   margin-left: 41px;
 }
 
+#deleteModalLabel {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  font-weight: normal;
+  padding-top: 15px;
+}
+
+.delete-modal-header {
+  border-bottom: 2px solid white;
+  background-color: #7D876E;
+  border-radius: 0px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.delete-modal-body {
+  background-color: #7D876E;
+  height: 170px;
+}
+
+.confirm-delete-text {
+  text-align: center;
+  color: white;
+  padding-top: 30px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  padding-bottom: 10px;
+}
+
+.delete-modal-cancel-button,
+.delete-button {
+  background-color: #1C2536;
+  color: white;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  border-radius: 0px;
+  font-size: 13px;
+  padding: 11px;
+  width: 30%;
+  border: none;
+}
+
+.delete-modal-cancel-button {
+  margin-left: 65px;
+}
+
+.delete-button {
+  margin-left: 20px;
+}
+
 body {
   background: #DAD5CA;
 }
@@ -115,7 +165,7 @@ nav {
   grid-template-columns: 5fr 1fr 2fr;
   grid-template-rows: 40px 160px;
   grid-template-areas: "nav-options nav-logo nav-tools";
-  transition: 0.4s;
+  transition: .4s;
 }
 
 .nav-options {
@@ -124,12 +174,14 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
+
 .nav-options ul {
   all: unset;
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
+
 .nav-options li {
   color: #1C2536;
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -146,6 +198,7 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
+
 .nav-tools span {
   display: flex;
   font-size: 2em;
@@ -157,6 +210,7 @@ nav {
   display: flex;
   align-items: center;
 }
+
 .search-button p {
   margin: 0;
 }
@@ -164,7 +218,7 @@ nav {
 #search-type {
   display: none;
   font-size: 1em;
-  margin-right: 0.5em;
+  margin-right: .5em;
   font-family: "Plus Jakarta Sans", sans-serif;
   color: #7D876E;
 }
@@ -180,6 +234,7 @@ nav {
   align-items: center;
   z-index: 99;
 }
+
 .account-button #dp {
   width: 1.25em;
   height: 1.25em;
@@ -227,6 +282,7 @@ nav {
   justify-content: center;
   align-items: center;
 }
+
 .account-functions p {
   margin-bottom: 0;
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -246,7 +302,7 @@ nav {
 }
 
 .search-row {
-  grid-column: 1/4;
+  grid-column: 1 / 4;
   text-align: center;
   padding: 33px;
   left: 0;
@@ -261,6 +317,7 @@ nav {
 .search-message {
   margin-bottom: 16px;
 }
+
 .search-message h2 {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 1.3em;
@@ -275,6 +332,7 @@ nav {
   position: relative;
   width: 800px;
 }
+
 .search-bar i {
   display: flex;
   gap: 20%;
@@ -305,12 +363,12 @@ nav {
   background-color: #7D876E;
   right: 100%;
   width: 0;
-  transition: width 0.4s ease-in-out;
+  transition: width .4s ease-in-out;
 }
 
 .search-bar:hover::after {
   width: 100%;
-  transition: width 0.4s ease-in-out;
+  transition: width .4s ease-in-out;
 }
 
 #search-bar-input {
@@ -330,7 +388,7 @@ nav {
 
 .nav-expand {
   max-height: 300px;
-  transition: 0.4s;
+  transition: .4s;
 }
 
 .nav-padding {
@@ -345,6 +403,7 @@ nav {
     display: block;
   }
 }
+
 @media only screen and (min-width: 1024px) {
   .nav-grid {
     grid-template-columns: 1fr 1fr 1fr;
@@ -370,11 +429,10 @@ nav {
     display: block;
   }
 }
+
 #result {
-  -moz-column-count: 2;
-       column-count: 2;
-  -moz-column-gap: 1em;
-       column-gap: 1em;
+  column-count: 2;
+  column-gap: 1em;
   position: relative;
   overflow: hidden;
   display: flow-root;
@@ -393,7 +451,7 @@ nav {
   z-index: 100;
   width: 100%;
   height: 400px;
-  background: linear-gradient(hsla(0deg, 0%, 94.1%, 0), #DAD1CA);
+  background: linear-gradient(rgba(240, 240, 240, 0), #DAD1CA);
   pointer-events: none;
   left: 0;
 }
@@ -405,6 +463,7 @@ nav {
   padding-bottom: 50px;
   background: #FDFBFC;
 }
+
 .product-item .product-image {
   width: 100%;
   height: 100%;
@@ -422,13 +481,15 @@ nav {
   position: absolute;
   flex-direction: column;
 }
+
 .product-description h4 {
-  font-size: calc(0.8em + 0.3vw);
+  font-size: calc(.8em + .3vw);
   font-weight: 200;
   color: #1C2536;
 }
+
 .product-description p {
-  font-size: 0.7em;
+  font-size: .7em;
   font-weight: 100;
   color: #7D876E;
 }
@@ -443,6 +504,7 @@ nav {
   right: 6px;
   justify-content: center;
 }
+
 #favourite h3 {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 1em;
@@ -463,12 +525,10 @@ nav {
 .product-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: 50% 50%;
-     object-position: 50% 50%;
+  object-fit: cover;
+  object-position: 50% 50%;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 }
 
 .browse-button {
@@ -476,6 +536,7 @@ nav {
   text-align: center;
   padding-top: 88px;
 }
+
 .browse-button button {
   all: unset;
   color: white;
@@ -509,16 +570,16 @@ nav {
 
 @media only screen and (min-width: 768px) {
   #result {
-    -moz-column-count: 3;
-         column-count: 3;
+    column-count: 3;
   }
 }
+
 @media only screen and (min-width: 1024px) {
   #result {
-    -moz-column-count: 4;
-         column-count: 4;
+    column-count: 4;
   }
 }
+
 * {
   box-sizing: border-box;
   text-decoration: none;
@@ -575,9 +636,11 @@ header {
   margin-right: 5%;
   position: relative;
 }
+
 .filer span {
   margin-left: 5px;
 }
+
 .filer button {
   width: 135px;
   all: unset;
@@ -595,11 +658,13 @@ header {
   width: 135px;
   max-height: 0px;
   overflow: hidden;
-  transition: 0.2s ease;
+  transition: .2s ease;
 }
+
 .filter-dropdown ul {
   padding: 0 10px;
 }
+
 .filter-dropdown li {
   list-style: none;
   border-bottom: solid 1px #FDFBFC;
@@ -609,5 +674,17 @@ header {
 
 .filter-expand {
   max-height: 91px !important;
-  transition: 0.2s ease;
+  transition: .2s ease;
+}
+
+#tools {
+  background-color: #FDFBFC;
+  width: 100%;
+  height: 710px;
+}
+
+.login-banner {
+  width: 100%;
+  height: 70px;
+  background-color: #7D876E;
 }

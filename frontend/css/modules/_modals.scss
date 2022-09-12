@@ -82,6 +82,145 @@ label {
     margin-left: 41px;
 }
 
+.productModal{
+    background-color: white;
+    width: 80%;
+    height: 80%;
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    // border-top: 3px solid $secondary-colour;
+    // border-right: 3px solid $main-colour;
+    // border-bottom: 3px solid $main-colour;
+    // border-left: 3px solid $secondary-colour;
+    border-radius: 10px;
+    box-shadow: 5px 5px 200px black;
+    visibility: hidden;
+    opacity: 0;
+    padding: 0.5em 1.2em 0.7em 1.2em;
+    font-size: 1.5em;
+    transition: all .3s ease;
+}
+
+
+.active {
+  visibility: visible;
+  opacity: 1;
+  transition: all .3s ease;
+  z-index: 100;
+  border: solid 1px $green;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 0;
+  transition: all .3s ease;
+  cursor: pointer;
+  line-height: 1.2;
+  overflow: hidden;
+}
+
+// button:hover {
+//   transition: all .3s ease;
+//   color: white;
+//   background-color: $main-colour;
+// }
+
+// modal grid
+
+.product-modal-container {
+  height: 100%;
+}
+
+.product-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 2fr;
+  gap: 10px;
+  height: 100%;
+}
+
+.product-owner {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  font-size: 20px;
+}
+
+.product-name {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+  .product-description{
+    grid-column: 1/2;
+    grid-row: 3/5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: .8em;
+  }
+
+.product-image {
+  grid-column: 2/3;
+  grid-row: 1/5;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: $green;
+  }
+}
+
+// #image-preview{
+//   img {
+//     width: 100%;
+//     height: 250px;
+//     object-fit: contain;
+//     background: $green;
+// }
+// }
+
+#close-modal {
+  position: absolute;
+  right: 29px;
+  top: 12px;
+  color: $green;
+  font-size: 40px;
+  height: 50px;
+  width: 50px;
+  background: white;
+  border: solid 1px $green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .3s ease;
+}
+
+#close-modal:hover {
+  background: black;
+  transition: all .3s ease;
+
+}
+
+.name-underline {
+  width: 100%;
+  height: 15px;
+  background: $green;
+}
+
+// .edit-tools {
+//   font-size: .6em;
+//   position: absolute;
+//   bottom: 17px;
+//   button{
+//     margin-right: 10px;
+//     font-family: $description-font;
+//   }
+// }
+
+// .modal-backdrop {
+//   z-index: 0;
+// }
+
 // DELETE MODAL  -------------------------------------------------------------------
 
 

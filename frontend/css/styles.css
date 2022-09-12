@@ -92,6 +92,108 @@ label {
   margin-left: 41px;
 }
 
+.productModal {
+  background-color: white;
+  width: 80%;
+  height: 80%;
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  border-radius: 10px;
+  box-shadow: 5px 5px 200px black;
+  visibility: hidden;
+  opacity: 0;
+  padding: 0.5em 1.2em 0.7em 1.2em;
+  font-size: 1.5em;
+  transition: all 0.3s ease;
+}
+
+.active {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.3s ease;
+  z-index: 100;
+  border: solid 1px #7D876E;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  line-height: 1.2;
+  overflow: hidden;
+}
+
+.product-modal-container {
+  height: 100%;
+}
+
+.product-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 2fr;
+  gap: 10px;
+  height: 100%;
+}
+
+.product-owner {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  font-size: 20px;
+}
+
+.product-name {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+.product-description {
+  grid-column: 1/2;
+  grid-row: 3/5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.8em;
+}
+
+.product-image {
+  grid-column: 2/3;
+  grid-row: 1/5;
+}
+.product-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  background-color: #7D876E;
+}
+
+#close-modal {
+  position: absolute;
+  right: 29px;
+  top: 12px;
+  color: #7D876E;
+  font-size: 40px;
+  height: 50px;
+  width: 50px;
+  background: white;
+  border: solid 1px #7D876E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+#close-modal:hover {
+  background: black;
+  transition: all 0.3s ease;
+}
+
+.name-underline {
+  width: 100%;
+  height: 15px;
+  background: #7D876E;
+}
+
 #deleteModalLabel {
   display: block;
   margin-left: auto;

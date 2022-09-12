@@ -128,7 +128,9 @@ let renderProducts = (products) => {
             <i class="bi bi-pencil edit-button" data-bs-toggle="modal" data-bs-target="#editModal"></i>
             </div>
             <div class="product-image">
-                <img src="${item.img_url}" alt="${item.name}">
+                <img src="${item.img_url}" class="open-image" alt="${
+        item.name
+      }">
             </div>
             <div class="product-description">
                 <h4>${item.name.toUpperCase()}</h4>
@@ -147,7 +149,7 @@ let renderProducts = (products) => {
           <div class="product-buttons">
           </div>
           <div class="product-image">
-              <img src="${item.img_url}" alt="${item.name}">
+              <img src="${item.img_url}" class="open-image" alt="${item.name}">
           </div>
           <div class="product-description">
               <h4>${item.name.toUpperCase()}</h4>
@@ -169,13 +171,14 @@ let renderProducts = (products) => {
   // running add comment buttons function
   collectCommentButtons();
 
+  collectProductModals();
+
   let deleteBtn = document.getElementById("submitDelete");
   deleteBtn.onclick = () => {
     console.log(productId);
     populateDeleteModal(productId);
   };
 };
-
 
 // =================================
 //      ADD COMMENT FUNCTION
@@ -464,4 +467,90 @@ accountImg.onclick = function () {
 
 function accountExpand() {
   accountDetails.classList.toggle("account-expand");
+
+  // ==============================
+  //  COLLECT PRODUCT MODAL
+  // ==============================
+
+  // Render the inner HTML for the modal
 }
+
+let renderProductModal = (projectData) => {
+  let productOwner = document.getElementById("product-owner");
+  let productName = document.getElementById("product-name");
+  // let productDescription = document.getElementById("product-description");
+  let productImage = document.getElementById("product-image");
+  let currentId = projectData._id;
+  productOwner.innerHTML = `
+<h1>${projectData.productowner}</h1>
+<div class="name-underline"></div>
+`;
+
+  productName.innerHTML = `
+<h2>${projectData.name}</h2>
+`;
+
+  // productDescription.innerHTML = `
+  // <p>${projectData.description}</p>
+
+  // `;
+
+  productImage.innerHTML = `
+<img src="${projectData.img_url}" alt="">
+`;
+
+  // let deleteBtn = document.getElementById('delete-button');
+  // deleteBtn.onclick = () => {
+  //   console.log(currentId);
+  //   deleteStudent(currentId);
+  //   projectModal.classList.toggle("active");
+  // };
+
+  // let editBtn = document.getElementById('edit-button');
+  // editBtn.onclick = () => {
+  //   console.log(currentId);
+  //   populateEditModal(currentId);
+};
+
+// Getting data from MongoDB to put in our project modal
+
+let populateProductModal = (projectId) => {
+  $.ajax({
+    url: `http://localhost:3400/product/${projectId}`,
+    type: "GET",
+    success: (projectData) => {
+      // console.log('student was found');
+      console.log(projectData);
+      // thias is where renderprojectmodal is getting its data from
+      renderProductModal(projectData);
+    },
+    error: (error) => {
+      console.log(error);
+    },
+  });
+};
+
+const openImage = document.getElementsByClassName("open-image");
+const closeModalBtn = document.getElementById("close-modal");
+const productModal = document.getElementById("productModal");
+
+let collectProductModals = () => {
+  for (let i = 0; i < openImage.length; i++) {
+    // This is when the user clicks on the project image
+
+    openImage[i].onclick = () => {
+      console.log("You clicked the modal");
+      let productId = openImage[i].parentNode.parentNode.parentNode.id;
+      console.log(productId);
+      populateProductModal(productId);
+      productModal.classList.toggle("active");
+    };
+  }
+  closeModalBtn.onclick = () => {
+    productModal.classList.toggle("active");
+  };
+};
+
+// openImage.onclick = () => {
+//   console.log("you clicked me");
+// }

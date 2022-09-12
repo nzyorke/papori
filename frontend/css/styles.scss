@@ -8,6 +8,7 @@
 @import '../css/modules/account.scss';
 @import '../css/modules/account-settings.scss';
 @import '../css/modules/footer.scss';
+@import '../css/modules/signin.scss';
 
 
 * {
@@ -109,16 +110,128 @@ header {
 }
 
 
-// LOGIN PAGE CSS 
-#tools {
-    background-color: #FDFBFC;
-    width: 100%;
-    height: 710px;
+// EDIT ACCOUNT PAGE 
+
+.edit-account-header {
+    height: 60px;
+    border-bottom: 2px solid #1C2536;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 25px;
+    border-top: 2px solid #1C2536;
+    padding-top: 10px;
 }
 
-.login-banner {
-    width: 100%;
-    height: 70px;
-    background-color: $green;
+.edit-title {
+    font-family: $sen;
+    font-weight: bold;
+}
 
+.back-button {
+    background-color: #1C2536;
+    color: white;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    border-radius: 0px;
+    font-size: 13px;
+    padding: 10px;
+    width: 160px;
+    border: none;
+    margin-left: 46px;
+    margin-top: -1px;
+}
+
+#edit-account-image {
+    height: 180px;
+}
+
+.edit-image {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    background: $green;
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    margin-top: 25px;
+}
+
+#edit-account-form {
+    width: 95%;
+    margin: 0 auto;
+    height: 700px;
+    padding-left: 10px;
+}
+
+.edit-label {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: $blue;
+}
+
+.edit-input,
+.edit-description-input {
+    font-family: $jakarta;
+    all: unset;
+    width: 94%;
+    margin-left: 5px;
+    border-radius: 1px;
+    height: 40px;
+    padding-left: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    background: white;
+}
+
+.edit-description-input {
+    height: 140px;
+}
+
+.button-container {
+    width: 95%;
+    margin-left: 5px;
+    height: 70px;
+}
+
+#edit-button1,
+#edit-button2 {
+    background-color: #1C2536;
+    color: white;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    border-radius: 0px;
+    font-size: 17px;
+    padding: 14px;
+    width: 100%;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.edit-password-modal-content {
+    background-color: $tan;
+    width: 99%;
+    height: 350px;
+    padding: 10px;
+    border: 1px solid $blue;
+}
+
+.edit-password-input {
+    font-family: $jakarta;
+    all: unset;
+    width: 94%;
+    margin-left: 5px;
+    border-radius: 1px;
+    height: 40px;
+    padding-left: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    background: white;
+}
+
+.edit-password-label {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: $blue;
 }

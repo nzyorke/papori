@@ -194,10 +194,6 @@ label {
   background: #7D876E;
 }
 
-.modal-backdrop {
-  z-index: 0;
-}
-
 #deleteModalLabel {
   display: block;
   margin-left: auto;
@@ -257,46 +253,38 @@ label {
   align-items: center;
   justify-content: center;
 }
-
 .landingpage .star1,
 .landingpage .star2,
 .landingpage .star3 {
   position: absolute;
 }
-
 .landingpage .star1 img,
 .landingpage .star2 img,
 .landingpage .star3 img {
   width: 40px;
 }
-
 .landingpage .star1 {
   top: 20%;
   left: 40%;
 }
-
 .landingpage .star2 {
   top: 70%;
   left: 4%;
 }
-
 .landingpage .star3 {
   top: 80%;
   left: 78%;
 }
-
 .landingpage .landingpage_title {
   width: 100%;
   height: auto;
   text-align: center;
 }
-
 .landingpage .landingpage_title h1 {
   font-family: "mirra";
   font-size: 140px;
   color: #A7432B;
 }
-
 .landingpage .landingpage_title p {
   font-family: "Sen", sans-serif;
   font-weight: 600;
@@ -307,19 +295,17 @@ label {
   border-top: 2px #FDFBFC solid;
   border-bottom: 2px #FDFBFC solid;
 }
-
 .landingpage .landingpage_logo {
   position: absolute;
   bottom: 50px;
   text-align: center;
 }
-
 .landingpage .landingpage_logo img {
   width: 80px;
   height: auto;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-
 .landingpage .landingpage_logo p {
   font-family: "Sen", sans-serif;
   text-transform: uppercase;
@@ -333,7 +319,6 @@ label {
   display: flex;
   flex-direction: column;
 }
-
 .gallery-cont .gallery {
   display: flex;
   flex-direction: column;
@@ -350,9 +335,6 @@ label {
   border-bottom: 2px solid #1C2536;
 }
 .gallery-cont .gallery #gallery0 {
-
-.gallery-cont #gallery0 {
-
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(1, 1fr);
@@ -361,14 +343,6 @@ label {
 .gallery-cont .gallery #gallery0 .product-container {
   width: 100%;
   height: 100%;
-
-.gallery-cont #gallery0 .product-container {
-  width: 100%;
-  height: 400px;
-  background-color: white;
-  border: 2px solid #433c3c;
-  font-size: 12px;
-  text-align: center;
   margin: 0;
   grid-row: span 1;
 }
@@ -387,14 +361,6 @@ label {
 .gallery-cont .gallery #gallery0 .product-container .product-description {
   height: 50px;
   width: 100%;
-
-.gallery-cont #gallery0 .product-container img {
-  width: 100px;
-  height: auto;
-  object-fit: cover;
-}
-
-.gallery-cont #gallery1 {
   display: flex;
   bottom: 0;
   align-items: flex-start;
@@ -403,7 +369,6 @@ label {
   position: absolute;
   flex-direction: column;
 }
-
 .gallery-cont .gallery #gallery0 .product-container .product-description h4 {
   font-size: calc(0.8em + 0.3vw);
   font-weight: 200;
@@ -439,18 +404,9 @@ label {
   position: relative;
   width: 100%;
   height: 100%;
-
-.gallery-cont #gallery1 .product-container {
-  width: 100%;
-  height: 400px;
-  background-color: white;
-  border: 2px solid #433c3c;
-  font-size: 12px;
-  text-align: center;
   margin: 0;
   grid-row: span 1;
 }
-
 .gallery-cont .gallery #gallery1 .product-container .product-item {
   width: 100%;
   height: 400px;
@@ -473,31 +429,14 @@ label {
   height: 150px;
 }
 .gallery-cont .gallery #gallery2 {
-
-.gallery-cont #gallery1 .product-container img {
-  width: 100px;
-  height: auto;
-  object-fit: cover;
-}
-
-.gallery-cont #gallery2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 5px;
 }
-
 .gallery-cont .gallery #gallery2 .product-container {
   width: 100%;
   height: 100%;
-
-.gallery-cont #gallery2 .product-container {
-  width: 100%;
-  height: 400px;
-  background-color: white;
-  border: 2px solid #433c3c;
-  font-size: 12px;
-  text-align: center;
   margin: 0;
   grid-row: span 1;
 }
@@ -571,16 +510,6 @@ label {
   text-transform: capitalize;
   letter-spacing: 1px;
   padding: 10px 30px;
-
-.gallery-cont #gallery2 .product-container img {
-  width: 100px;
-  height: auto;
-  object-fit: cover;
-}
-
-.gallery-cont #gallery2 .product-container:nth-child(1) {
-  grid-column-start: 1;
-  grid-column-end: 3;
 }
 
 body {
@@ -1014,7 +943,6 @@ nav {
          column-count: 4;
   }
 }
-
 footer {
   width: 100vw;
   height: auto;
@@ -1025,11 +953,9 @@ footer {
   background-color: #1C2536;
   color: #FDFBFC;
 }
-
 footer p {
   margin: 0;
 }
-
 footer .footer-top {
   width: 100%;
   display: flex;
@@ -1037,7 +963,6 @@ footer .footer-top {
   align-items: center;
   justify-content: center;
 }
-
 footer .footer-top .footer-top-info1 {
   width: 100%;
   display: flex;
@@ -1047,7 +972,6 @@ footer .footer-top .footer-top-info1 {
   text-align: center;
   border-bottom: 2px solid #FDFBFC;
 }
-
 footer .footer-top .footer-top-info1 .title {
   width: 100%;
   font-size: 19px;
@@ -1056,7 +980,6 @@ footer .footer-top .footer-top-info1 .title {
   padding: 10px 0;
   font-family: "Plus Jakarta Sans", sans-serif;
 }
-
 footer .footer-top .footer-top-info1 .info {
   position: relative;
   width: 100%;
@@ -1069,28 +992,23 @@ footer .footer-top .footer-top-info1 .info {
   overflow-x: hidden;
   transition: all ease 0.3s;
 }
-
 footer .footer-top .footer-top-info1 .info a {
   font-family: "Plus Jakarta Sans", sans-serif;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   font-size: 16px;
   padding: 5px;
 }
-
 footer .footer-top .footer-top-info1.active .info {
   height: 120px;
 }
-
 footer .footer-top .footer-top-header {
   display: none;
 }
-
 footer .footer-top .footer-top-header p {
   color: #A7432B;
   font-family: "mirra";
   font-size: 80px;
 }
-
 footer .footer-middle {
   width: 100%;
   display: flex;
@@ -1100,7 +1018,6 @@ footer .footer-middle {
   border-bottom: 2px solid #FDFBFC;
   padding: 10px 0;
 }
-
 footer .footer-middle .socials {
   width: 100%;
   display: flex;
@@ -1108,28 +1025,24 @@ footer .footer-middle .socials {
   align-items: center;
   justify-content: space-between;
 }
-
 footer .footer-middle .socials p {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 14px;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   text-transform: capitalize;
 }
-
 footer .footer-middle .newsletter {
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-
 footer .footer-middle .newsletter input {
   width: 75%;
   height: 50px;
   padding: 5px;
   font-family: "Plus Jakarta Sans", sans-serif;
 }
-
 footer .footer-middle .newsletter button {
   all: unset;
   height: 50px;
@@ -1139,7 +1052,6 @@ footer .footer-middle .newsletter button {
   font-weight: 600;
   padding-left: 5px;
 }
-
 footer .footer-bottom {
   width: 100%;
   display: flex;
@@ -1149,107 +1061,22 @@ footer .footer-bottom {
   font-family: "Plus Jakarta Sans", sans-serif;
   padding: 10px 0;
 }
-
 footer .footer-bottom .copyright p {
   font-size: 14px;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
 }
-
 footer .footer-bottom .footer-logo img {
   width: 80px;
 }
-
 footer .footer-bottom .conditions {
   width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-
 footer .footer-bottom .conditions a {
   font-size: 14px;
-  letter-spacing: .5px;
-}
-
-#tools {
-  background-color: #FDFBFC;
-  width: 100%;
-  height: 710px;
-}
-
-.login-banner {
-  width: 100%;
-  height: 70px;
-  background-color: #7D876E;
-}
-
-.bi-x {
-  color: white;
-  font-size: 50px;
-  position: absolute;
-  margin-top: 7px;
-  right: 5px;
-}
-
-.sign-in-title,
-.sign-up-title {
-  font-family: "Sen", sans-serif;
-  font-weight: bold;
-  text-align: center;
-  font-size: 50px;
-  padding-bottom: 25px;
-}
-
-.sign-in-title {
-  padding-top: 70px;
-}
-
-.sign-up-title {
-  padding-top: 25px;
-}
-
-.sign-in-subtitle,
-.sign-up-subtitle {
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-weight: bold;
-  text-align: center;
-  font-size: 20px;
-  margin-bottom: 40px;
-}
-
-u {
-  text-decoration: underline;
-}
-
-#login-form,
-#signup-form {
-  width: 90%;
-  height: 340px;
-  margin: 0 auto;
-  padding-left: 10px;
-  font-family: "Plus Jakarta Sans", sans-serif;
-}
-
-.login-label,
-.signup-label {
-  font-weight: bold;
-  font-size: 23px;
-  margin-bottom: 10px;
-}
-
-.login-input,
-.signup-input {
-  font-family: "Plus Jakarta Sans", sans-serif;
-  all: unset;
-  width: 94%;
-  margin-left: 5px;
-  border-radius: 1px;
-  height: 40px;
-  padding-left: 5px;
-  font-size: 14px;
-  font-weight: 400;
-  border: solid 1px black;
-  margin-bottom: 30px;
+  letter-spacing: 0.5px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -1379,6 +1206,86 @@ u {
     font-size: 14px;
     letter-spacing: 0.5px;
   }
+}
+#tools {
+  background-color: #FDFBFC;
+  width: 100%;
+  height: 710px;
+}
+
+.login-banner {
+  width: 100%;
+  height: 70px;
+  background-color: #7D876E;
+}
+
+.bi-x {
+  color: white;
+  font-size: 50px;
+  position: absolute;
+  margin-top: 7px;
+  right: 5px;
+}
+
+.sign-in-title,
+.sign-up-title {
+  font-family: "Sen", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  font-size: 50px;
+  padding-bottom: 25px;
+}
+
+.sign-in-title {
+  padding-top: 70px;
+}
+
+.sign-up-title {
+  padding-top: 25px;
+}
+
+.sign-in-subtitle,
+.sign-up-subtitle {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+u {
+  text-decoration: underline;
+}
+
+#login-form,
+#signup-form {
+  width: 90%;
+  height: 340px;
+  margin: 0 auto;
+  padding-left: 10px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.login-label,
+.signup-label {
+  font-weight: bold;
+  font-size: 23px;
+  margin-bottom: 10px;
+}
+
+.login-input,
+.signup-input {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  all: unset;
+  width: 94%;
+  margin-left: 5px;
+  border-radius: 1px;
+  height: 40px;
+  padding-left: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  border: solid 1px black;
+  margin-bottom: 30px;
 }
 
 #login-button,
@@ -1568,8 +1475,7 @@ header {
   width: 95%;
   margin-left: 5px;
   height: 70px;
-  background-color: #7D876E;
-}/*# sourceMappingURL=styles.css.map */
+}
 
 #edit-button1,
 #edit-button2 {

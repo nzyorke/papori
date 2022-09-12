@@ -7,6 +7,11 @@ const goBtn = document.getElementById("go-button");
 // const descriptionInput = document.getElementById("description-input");
 // const imageURLInput = document.getElementById("image-url-input");
 
+
+const gallery0 = document.getElementById(`gallery0`);
+const gallery1 = document.getElementById(`gallery1`);
+const gallery2 = document.getElementById(`gallery2`);
+
 // =================================
 //        NAV BAR FUNCTIONS
 // =================================
@@ -47,6 +52,7 @@ let showAllProduct = () => {
     success: (products) => {
       console.log(products);
       renderProducts(products);
+      renderLandingpageGallery(products)
     },
     error: (error) => {
       console.log(error);
@@ -141,6 +147,7 @@ let renderProducts = (products) => {
             </div>
         </div>
     </div>
+    
         `;
     } else {
       result.innerHTML += `
@@ -179,6 +186,192 @@ let renderProducts = (products) => {
     populateDeleteModal(productId);
   };
 };
+
+let renderLandingpageGallery = (products) => {
+
+
+  // trending items 
+  let startTrendingItems
+  let endTrendingItems = 4;
+  let trendingItems = products.slice(startTrendingItems, endTrendingItems).map((item, i) => {
+    return item;
+  });
+
+  trendingItems.forEach((item) => {
+
+
+    let renderComments = () => {
+      if (item.comments.length > 0) {
+        let allComments = "";
+        item.comments.forEach((comment) => {
+          allComments += `<li>${comment.text}</li>`
+        });
+        return allComments;
+      } else {
+        return "<p>Be the first to place a comment!</p>"
+      }
+    }
+
+    if (item.createdby == sessionStorage.userID) {
+      gallery0.innerHTML += `
+      <div class="product-container" id="${item._id}">
+        <div class="product-item">
+            <div class="product-buttons">
+            <i class="bi bi-trash trash-button" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
+            <i class="bi bi-pencil edit-button" data-bs-toggle="modal" data-bs-target="#editModal"></i>
+            </div>
+            <div class="product-image">
+                <img src="${item.img_url}" alt="${item.name}">
+            </div>
+            <div class="product-description">
+                <h4>${item.name.toUpperCase()}</h4>
+                <p>BY ${item.productowner.toUpperCase()}</p> 
+                <div id="favourite">
+                <h3>$${item.price}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+      `;
+    } else {
+      gallery0.innerHTML += `
+      <div class="product-container" id="${item._id}">
+      <div class="product-item">
+          <div class="product-buttons">
+          </div>
+          <div class="product-image">
+              <img src="${item.img_url}" alt="${item.name}">
+          </div>
+          <div class="product-description">
+              <h4>${item.name.toUpperCase()}</h4>
+              <p>BY ${item.productowner.toUpperCase()}</p> 
+              <div id="favourite">
+              <h3>$${item.price}</h3>
+              </div>
+          </div>
+      </div>
+  </div>
+      `;
+    }
+  });
+
+  // new items 
+  let startNewItems = 5
+  let endNewItems = 7;
+  let newItems = products.slice(startNewItems, endNewItems).map((item, i) => {
+    return item;
+  });
+
+  newItems.forEach((item) => {
+
+
+    let renderComments = () => {
+      if (item.comments.length > 0) {
+        let allComments = "";
+        item.comments.forEach((comment) => {
+          allComments += `<li>${comment.text}</li>`
+        });
+        return allComments;
+      } else {
+        return "<p>Be the first to place a comment!</p>"
+      }
+    }
+
+    if (item.createdby == sessionStorage.userID) {
+      gallery1.innerHTML += `
+      <div class="product-container" id="${item._id}">
+        <div class="product-item">
+            
+            <div class="product-image">
+                <img src="${item.img_url}" alt="${item.name}">
+            </div>
+            
+        </div>
+    </div>
+      `;
+    } else {
+      gallery1.innerHTML += `
+      <div class="product-container" id="${item._id}">
+      <div class="product-item">  
+          <div class="product-image">
+              <img src="${item.img_url}" alt="${item.name}">
+          </div>
+      </div>
+      <div class="product-logo">
+        <img src="../frontend/media/logo_papori_white.svg" alt="logo_papori_white">
+      </div>
+  </div>
+      `;
+    }
+  });
+
+  // top sellers 
+  let startTopSellers = 8;
+  let endTopSellers = 11;
+  let topSellerItems = products.slice(startTopSellers, endTopSellers).map((item, i) => {
+    return item;
+  });
+
+  topSellerItems.forEach((item) => {
+
+
+    let renderComments = () => {
+      if (item.comments.length > 0) {
+        let allComments = "";
+        item.comments.forEach((comment) => {
+          allComments += `<li>${comment.text}</li>`
+        });
+        return allComments;
+      } else {
+        return "<p>Be the first to place a comment!</p>"
+      }
+    }
+
+    if (item.createdby == sessionStorage.userID) {
+      gallery2.innerHTML += `
+      <div class="product-container" id="${item._id}">
+        <div class="product-item">
+            <div class="product-buttons">
+            <i class="bi bi-trash trash-button" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
+            <i class="bi bi-pencil edit-button" data-bs-toggle="modal" data-bs-target="#editModal"></i>
+            </div>
+            <div class="product-image">
+                <img src="${item.img_url}" alt="${item.name}">
+            </div>
+            <div class="product-description">
+                <h4>${item.name.toUpperCase()}</h4>
+                <p>BY ${item.productowner.toUpperCase()}</p> 
+                <div id="favourite">
+                <h3>$${item.price}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+      `;
+    } else {
+      gallery2.innerHTML += `
+      <div class="product-container" id="${item._id}">
+      <div class="product-item">
+          <div class="product-buttons">
+          </div>
+          <div class="product-image">
+              <img src="${item.img_url}" alt="${item.name}">
+          </div>
+          <div class="product-description">
+              <h4>${item.name.toUpperCase()}</h4>
+              <p>BY ${item.productowner.toUpperCase()}</p> 
+              <div id="favourite">
+              <h3>$${item.price}</h3>
+              </div>
+          </div>
+      </div>
+  </div>
+      `;
+    }
+  });
+}
+
+
 
 // =================================
 //      ADD COMMENT FUNCTION
@@ -408,8 +601,7 @@ let checkLogin = () => {
     navContent = `
         <div class="account-button" id="nav-img-acc">
       <span id="username">${sessionStorage.userName.toUpperCase()}</span>
-      <span id="dp" style="background-image: url('${
-        sessionStorage.profileImg
+      <span id="dp" style="background-image: url('${sessionStorage.profileImg
       }')"></span>
       </div>
       `;
@@ -554,3 +746,17 @@ let collectProductModals = () => {
 // openImage.onclick = () => {
 //   console.log("you clicked me");
 // }
+
+let footerTopInfo1 = document.getElementsByClassName(`footer-top-info1`);
+
+for (let i = 0; i < footerTopInfo1.length; i++) {
+  const element = footerTopInfo1[i];
+  element.addEventListener('click', function () {
+    this.classList.toggle('active');
+    console.log('clicked');
+  })
+
+}
+
+console.log('hello');
+

@@ -1,0 +1,334 @@
+footer {
+    width: 100vw;
+    height: auto;
+    @include flex-column;
+    align-items: center;
+    justify-content: center;
+    background-color: $blue;
+    color: $white;
+
+    p {
+        margin: 0;
+    }
+
+    .footer-top {
+        width: 100%;
+        @include flex-column;
+        align-items: center;
+        justify-content: center;
+
+        .footer-top-info1 {
+            width: 100%;
+            @include flex-column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-bottom: 2px solid $white;
+
+            .title {
+                width: 100%;
+                font-size: 19px;
+                font-weight: 600;
+                letter-spacing: 2.5px;
+                padding: 10px 0;
+                font-family: $jakarta;
+
+            }
+
+            .info {
+                position: relative;
+                width: 100%;
+                @include flex-column;
+                align-items: center;
+                justify-content: center;
+
+                height: 0;
+                overflow-y: hidden;
+                overflow-x: hidden;
+                transition: all ease 0.3s;
+
+                a {
+                    font-family: $jakarta;
+                    letter-spacing: .5px;
+                    font-size: 16px;
+                    padding: 5px;
+                }
+
+            }
+        }
+
+        .footer-top-info1.active {
+            .info {
+                height: 120px;
+            }
+        }
+
+        .footer-top-header {
+
+            display: none;
+
+            p {
+                color: $red;
+                font-family: $mirra;
+                font-size: 80px;
+            }
+        }
+    }
+
+    .footer-middle {
+        width: 100%;
+        @include flex-column;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 2px solid $white;
+        padding: 10px 0;
+
+        .socials {
+            width: 100%;
+            @include flex-row;
+            align-items: center;
+            justify-content: space-between;
+
+            p {
+                font-family: $jakarta;
+                font-size: 14px;
+                letter-spacing: .5px;
+                text-transform: capitalize;
+            }
+        }
+
+        .newsletter {
+            width: 100%;
+            @include flex-row;
+            align-items: center;
+
+
+            // justify-content: space-between;
+            input {
+                width: 75%;
+                height: 50px;
+                padding: 5px;
+                font-family: $jakarta;
+            }
+
+            button {
+                all: unset;
+                height: 50px;
+                width: 25%;
+                background-color: $red;
+                font-size: 15px;
+                font-weight: 600;
+                padding-left: 5px;
+            }
+        }
+    }
+
+    .footer-bottom {
+        width: 100%;
+        @include flex-column;
+        align-items: center;
+        justify-content: center;
+        font-family: $jakarta;
+        padding: 10px 0;
+
+        .copyright {
+            p {
+                font-size: 14px;
+                letter-spacing: .5px;
+            }
+        }
+
+        .footer-logo {
+            img {
+                width: 80px;
+            }
+        }
+
+        .conditions {
+            width: 90%;
+            @include flex-row;
+            justify-content: space-between;
+
+            a {
+                font-size: 14px;
+                letter-spacing: .5px;
+            }
+        }
+    }
+}
+
+// mobile 
+@media only screen and (min-width: 425px) {}
+
+
+// tablet 
+@media only screen and (min-width: 768px) {
+    footer {
+
+        .footer-top {
+            width: 100%;
+            @include flex-row;
+            justify-content: space-between;
+
+            .footer-top-info1 {
+                width: 100%;
+                border-bottom: none;
+
+                .title {
+                    width: 100%;
+                    font-size: 19px;
+                    font-weight: 600;
+                    letter-spacing: 2.5px;
+                    padding: 10px 0;
+                    font-family: $jakarta;
+                    text-align: left;
+
+                }
+
+                .info {
+                    position: relative;
+                    width: 100%;
+                    @include flex-column;
+                    align-items: center;
+                    justify-content: center;
+
+                    height: 120px;
+                    overflow: none;
+                    transition: all ease 0.3s;
+                    cursor: default;
+
+                    a {
+                        width: 100%;
+                        display: inline-block;
+                        font-family: $jakarta;
+                        letter-spacing: .5px;
+                        font-size: 16px;
+                        padding: 5px;
+                        text-align: left;
+                    }
+
+                }
+            }
+
+            .footer-top-info1.active {
+                .info {
+                    height: 120px;
+                }
+            }
+
+            .right {
+                .title {
+                    text-align: right;
+                }
+
+                .info {
+                    a {
+                        text-align: right;
+                    }
+                }
+            }
+
+            ;
+
+            .footer-top-header {
+
+                display: block;
+
+                p {
+                    color: $red;
+                    font-family: $mirra;
+                    font-size: 80px;
+                }
+            }
+        }
+
+        .footer-middle {
+            width: 100%;
+            @include flex-column;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 2px solid $white;
+            padding: 10px 0;
+
+            .socials {
+                width: 100%;
+                @include flex-row;
+                align-items: center;
+                justify-content: space-between;
+
+                p {
+                    font-family: $jakarta;
+                    font-size: 14px;
+                    letter-spacing: .5px;
+                    text-transform: capitalize;
+                }
+            }
+
+            .newsletter {
+                width: 100%;
+                @include flex-row;
+                align-items: center;
+
+
+                // justify-content: space-between;
+                input {
+                    width: 75%;
+                    height: 50px;
+                    padding: 5px;
+                    font-family: $jakarta;
+                }
+
+                button {
+                    all: unset;
+                    height: 50px;
+                    width: 25%;
+                    background-color: $red;
+                    font-size: 15px;
+                    font-weight: 600;
+                    padding-left: 5px;
+                }
+            }
+        }
+
+        .footer-bottom {
+            width: 100%;
+            @include flex-column;
+            align-items: center;
+            justify-content: center;
+            font-family: $jakarta;
+            padding: 10px 0;
+
+            .copyright {
+                p {
+                    font-size: 14px;
+                    letter-spacing: .5px;
+                }
+            }
+
+            .footer-logo {
+                img {
+                    width: 80px;
+                }
+            }
+
+            .conditions {
+                width: 90%;
+                @include flex-row;
+                justify-content: space-between;
+
+                a {
+                    font-size: 14px;
+                    letter-spacing: .5px;
+                }
+            }
+        }
+    }
+}
+
+
+// laptop 
+@media only screen and (min-width: 1024px) {}
+
+
+// desktop 
+@media only screen and (min-width: 1440px) {}

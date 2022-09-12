@@ -1,0 +1,7 @@
+.edit-account-header {
+  height: 50px;
+  border-bottom: 2px solid #1C2536;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 25px;
+}

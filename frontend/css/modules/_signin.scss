@@ -1,0 +1,96 @@
+// LOGIN PAGE CSS 
+#tools {
+    background-color: #FDFBFC;
+    width: 100%;
+    height: 710px;
+}
+
+.login-banner {
+    width: 100%;
+    height: 70px;
+    background-color: $green;
+
+}
+
+.bi-x {
+    color: white;
+    font-size: 50px;
+    position: absolute;
+    margin-top: 7px;
+    right: 5px;
+}
+
+.sign-in-title,
+.sign-up-title {
+    font-family: "Sen", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 50px;
+    padding-bottom: 25px;
+}
+
+.sign-in-title {
+    padding-top: 70px;
+}
+
+.sign-up-title {
+    padding-top: 25px;
+}
+
+.sign-in-subtitle,
+.sign-up-subtitle {
+    font-family: $jakarta;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+u {
+    text-decoration: underline;
+}
+
+#login-form,
+#signup-form {
+    width: 90%;
+    height: 340px;
+    margin: 0 auto;
+    padding-left: 10px;
+    font-family: $jakarta;
+}
+
+.login-label,
+.signup-label {
+    font-weight: bold;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.login-input,
+.signup-input {
+    font-family: $jakarta;
+    all: unset;
+    width: 94%;
+    margin-left: 5px;
+    border-radius: 1px;
+    height: 40px;
+    padding-left: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    border: solid 1px black;
+    margin-bottom: 30px;
+}
+
+#login-button,
+#signup-button {
+    background-color: #1C2536;
+    color: white;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    border-radius: 0px;
+    font-size: 13px;
+    padding: 14px;
+    width: 96%;
+    border: none;
+    margin-left: 5px;
+    margin-top: 40px;
+}

@@ -7,7 +7,6 @@ const goBtn = document.getElementById("go-button");
 // const descriptionInput = document.getElementById("description-input");
 // const imageURLInput = document.getElementById("image-url-input");
 
-
 const gallery0 = document.getElementById(`gallery0`);
 const gallery1 = document.getElementById(`gallery1`);
 const gallery2 = document.getElementById(`gallery2`);
@@ -52,7 +51,7 @@ let showAllProduct = () => {
     success: (products) => {
       console.log(products);
       renderProducts(products);
-      renderLandingpageGallery(products)
+      renderLandingpageGallery(products);
     },
     error: (error) => {
       console.log(error);
@@ -188,29 +187,27 @@ let renderProducts = (products) => {
 };
 
 let renderLandingpageGallery = (products) => {
-
-
-  // trending items 
-  let startTrendingItems
+  // trending items
+  let startTrendingItems;
   let endTrendingItems = 4;
-  let trendingItems = products.slice(startTrendingItems, endTrendingItems).map((item, i) => {
-    return item;
-  });
+  let trendingItems = products
+    .slice(startTrendingItems, endTrendingItems)
+    .map((item, i) => {
+      return item;
+    });
 
   trendingItems.forEach((item) => {
-
-
     let renderComments = () => {
       if (item.comments.length > 0) {
         let allComments = "";
         item.comments.forEach((comment) => {
-          allComments += `<li>${comment.text}</li>`
+          allComments += `<li>${comment.text}</li>`;
         });
         return allComments;
       } else {
-        return "<p>Be the first to place a comment!</p>"
+        return "<p>Be the first to place a comment!</p>";
       }
-    }
+    };
 
     if (item.createdby == sessionStorage.userID) {
       gallery0.innerHTML += `
@@ -255,27 +252,25 @@ let renderLandingpageGallery = (products) => {
     }
   });
 
-  // new items 
-  let startNewItems = 5
+  // new items
+  let startNewItems = 5;
   let endNewItems = 7;
   let newItems = products.slice(startNewItems, endNewItems).map((item, i) => {
     return item;
   });
 
   newItems.forEach((item) => {
-
-
     let renderComments = () => {
       if (item.comments.length > 0) {
         let allComments = "";
         item.comments.forEach((comment) => {
-          allComments += `<li>${comment.text}</li>`
+          allComments += `<li>${comment.text}</li>`;
         });
         return allComments;
       } else {
-        return "<p>Be the first to place a comment!</p>"
+        return "<p>Be the first to place a comment!</p>";
       }
-    }
+    };
 
     if (item.createdby == sessionStorage.userID) {
       gallery1.innerHTML += `
@@ -305,27 +300,27 @@ let renderLandingpageGallery = (products) => {
     }
   });
 
-  // top sellers 
+  // top sellers
   let startTopSellers = 8;
   let endTopSellers = 11;
-  let topSellerItems = products.slice(startTopSellers, endTopSellers).map((item, i) => {
-    return item;
-  });
+  let topSellerItems = products
+    .slice(startTopSellers, endTopSellers)
+    .map((item, i) => {
+      return item;
+    });
 
   topSellerItems.forEach((item) => {
-
-
     let renderComments = () => {
       if (item.comments.length > 0) {
         let allComments = "";
         item.comments.forEach((comment) => {
-          allComments += `<li>${comment.text}</li>`
+          allComments += `<li>${comment.text}</li>`;
         });
         return allComments;
       } else {
-        return "<p>Be the first to place a comment!</p>"
+        return "<p>Be the first to place a comment!</p>";
       }
-    }
+    };
 
     if (item.createdby == sessionStorage.userID) {
       gallery2.innerHTML += `
@@ -369,9 +364,7 @@ let renderLandingpageGallery = (products) => {
       `;
     }
   });
-}
-
-
+};
 
 // =================================
 //      ADD COMMENT FUNCTION
@@ -601,7 +594,8 @@ let checkLogin = () => {
     navContent = `
         <div class="account-button" id="nav-img-acc">
       <span id="username">${sessionStorage.userName.toUpperCase()}</span>
-      <span id="dp" style="background-image: url('${sessionStorage.profileImg
+      <span id="dp" style="background-image: url('${
+        sessionStorage.profileImg
       }')"></span>
       </div>
       `;
@@ -670,38 +664,45 @@ function accountExpand() {
 let renderProductModal = (projectData) => {
   let productOwner = document.getElementById("product-owner");
   let productName = document.getElementById("product-name");
-  // let productDescription = document.getElementById("product-description");
+  let productDescription = document.getElementById("modal-description");
   let productImage = document.getElementById("product-image");
+  let productComments = document.getElementById("product-comments");
   let currentId = projectData._id;
   productOwner.innerHTML = `
-<h1>${projectData.productowner}</h1>
-<div class="name-underline"></div>
+<h3>${projectData.productowner.toUpperCase()}</h3>
 `;
 
   productName.innerHTML = `
-<h2>${projectData.name}</h2>
+<h2>${projectData.name.toUpperCase()}</h2>
+<h2>$${projectData.price}</h2>
 `;
 
-  // productDescription.innerHTML = `
-  // <p>${projectData.description}</p>
+  productDescription.innerHTML = `
+  <div class="name-underline"></div>
+  <div class="description-flex">
+  <div class="description-type">
+  <h4>DESCRIPTION</H4>
+  <p>This is where the description will go</p>
+  </div>
+  <div class="inquire">
+<button>INQUIRE</button>
+</div>
 
-  // `;
+  `;
 
   productImage.innerHTML = `
-<img src="${projectData.img_url}" alt="">
+<img src="${projectData.img_url}" alt="${projectData.name}">
 `;
 
-  // let deleteBtn = document.getElementById('delete-button');
-  // deleteBtn.onclick = () => {
-  //   console.log(currentId);
-  //   deleteStudent(currentId);
-  //   projectModal.classList.toggle("active");
-  // };
+// productComments.innerHTML = `
+// <div class="name-underline"></div>
+// <div class="comments-style">
+//   <h4>COMMENTS</H4>
+//   <p>No comments yet!</p>
+//   </div>
+// `;
 
-  // let editBtn = document.getElementById('edit-button');
-  // editBtn.onclick = () => {
-  //   console.log(currentId);
-  //   populateEditModal(currentId);
+
 };
 
 // Getting data from MongoDB to put in our project modal
@@ -751,12 +752,10 @@ let footerTopInfo1 = document.getElementsByClassName(`footer-top-info1`);
 
 for (let i = 0; i < footerTopInfo1.length; i++) {
   const element = footerTopInfo1[i];
-  element.addEventListener('click', function () {
-    this.classList.toggle('active');
-    console.log('clicked');
-  })
-
+  element.addEventListener("click", function () {
+    this.classList.toggle("active");
+    console.log("clicked");
+  });
 }
 
-console.log('hello');
-
+console.log("hello");

@@ -411,6 +411,38 @@ nav {
 
 .nav-grid {
   max-height: 40px;
+}
+.gallery .swiper {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.gallery .swiper #gallery-swiper .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gallery .swiper #gallery-swiper .swiper-slide .product-container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  grid-row: span 1;
+}
+.gallery .swiper #gallery-swiper .swiper-slide .product-container .product-item {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  padding-bottom: 0px;
+  background: #FDFBFC;
+}
+.gallery .swiper #gallery-swiper .swiper-slide .product-container .product-item .product-image {
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   display: grid;
   grid-template-columns: 5fr 1fr 2fr;
@@ -418,6 +450,63 @@ nav {
   grid-template-areas: "nav-options nav-logo nav-tools";
   transition: 0.4s;
 }
+.gallery .swiper #gallery-swiper .swiper-slide .product-container .product-item .product-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.gallery .swiper .swiper-pagination-bullet {
+  background-color: #1C2536;
+}
+.gallery .swiper .swiper-pagination-bullet.active {
+  background-color: #1C2536;
+}
+.gallery .swiper .swiper-button {
+  display: none;
+}
+.gallery .swiper .swiper-logo {
+  position: absolute;
+  top: 120px;
+  left: 120px;
+  z-index: 98;
+}
+.gallery .swiper .swiper-logo img {
+  width: 150px;
+  height: 150px;
+}
+
+body {
+  background: #DAD5CA;
+}
+
+a {
+  all: unset;
+}
+
+nav {
+  background: #FDFBFC;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
+
+.nav-wrapper {
+  padding: 18px 25px;
+  background: #FDFBFC;
+}
+
+.nav-grid {
+  max-height: 40px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 5fr 1fr 2fr;
+  grid-template-rows: 40px 160px;
+  grid-template-areas: "nav-options nav-logo nav-tools";
+  transition: 0.4s;
+}
+
 
 .nav-options {
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -632,6 +721,291 @@ nav {
 .nav-expand {
   max-height: 300px;
   transition: 0.4s;
+}
+
+.nav-padding {
+  padding-top: 76px;
+}
+
+@media only screen and (min-width: 768px) {
+  .nav-grid {
+    grid-template-columns: 3fr 1fr 2fr;
+  }
+  #search-type {
+    display: block;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .nav-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .nav-logo {
+    visibility: visible;
+    display: flex;
+    justify-content: center;
+  }
+  .search-bar i {
+    font-size: 1.5em;
+  }
+  .account-button #username {
+    display: block;
+  }
+  #search-icon {
+    margin-right: 0.5em;
+  }
+  #account-symbol {
+    display: none;
+  }
+  #account-button {
+    display: block;
+  }
+}
+.landingpage {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #DAD5CA;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 300px;
+}
+.landingpage .star1,
+.landingpage .star2,
+.landingpage .star3 {
+  position: absolute;
+}
+.landingpage .star1 img,
+.landingpage .star2 img,
+.landingpage .star3 img {
+  width: 40px;
+}
+.landingpage .star1 {
+  top: 18%;
+  left: 40%;
+}
+.landingpage .star2 {
+  top: 64%;
+  left: 8%;
+}
+.landingpage .star3 {
+  top: 70%;
+  left: 78%;
+}
+.landingpage .landingpage_title {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+.landingpage .landingpage_title h1 {
+  font-family: "mirra";
+  font-size: 150px;
+  color: #A7432B;
+}
+.landingpage .landingpage_title p {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: #1C2536;
+  padding: 0px 5px 30px 5px;
+  border-bottom: 2px #FDFBFC solid;
+}
+.landingpage .landingpage_logo {
+  position: absolute;
+  bottom: 60px;
+  text-align: center;
+}
+.landingpage .landingpage_logo img {
+  width: 50px;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.landingpage .landingpage_logo p {
+  font-family: "Sen", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  font-size: 12px;
+  color: #1C2536;
+  padding-top: 10px;
+}
+
+.gallery-cont {
+  display: flex;
+  flex-direction: column;
+}
+.gallery-cont .gallery {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.gallery-cont .gallery h6 {
+  font-family: "Sen", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  margin: 10px 0px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  line-height: 50px;
+  border-bottom: 2px solid #1C2536;
+}
+.gallery-cont .gallery #gallery0 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  gap: 5px;
+}
+.gallery-cont .gallery #gallery0 .product-container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  grid-row: span 1;
+}
+.gallery-cont .gallery #gallery0 .product-container .product-item {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  padding-bottom: 50px;
+  background: #FDFBFC;
+}
+.gallery-cont .gallery #gallery0 .product-container .product-item .product-image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.gallery-cont .gallery #gallery0 .product-container .product-description {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  bottom: 0;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 42px 0 6px;
+  position: absolute;
+  flex-direction: column;
+}
+.gallery-cont .gallery #gallery0 .product-container .product-description h4 {
+  font-size: calc(0.8em + 0.3vw);
+  font-weight: 200;
+  color: #1C2536;
+}
+.gallery-cont .gallery #gallery0 .product-container .product-description p {
+  font-size: 0.7em;
+  font-weight: 100;
+  color: #7D876E;
+}
+.gallery-cont .gallery #gallery0 .product-container #favourite {
+  position: absolute;
+  top: 11px;
+  bottom: 11px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  right: 6px;
+  justify-content: center;
+}
+.gallery-cont .gallery #gallery0 .product-container #favourite h3 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  color: #1C2536;
+}
+.gallery-cont .gallery #gallery1 {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.gallery-cont .gallery #gallery1 .product-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  grid-row: span 1;
+}
+.gallery-cont .gallery #gallery1 .product-container .product-item {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  padding-bottom: 0;
+  background: #FDFBFC;
+}
+.gallery-cont .gallery #gallery1 .product-container .product-item .product-image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.gallery-cont .gallery #gallery1 .product-container .product-logo {
+  position: absolute;
+  top: 120px;
+  left: 120px;
+  z-index: 98;
+}
+.gallery-cont .gallery #gallery1 .product-container .product-logo img {
+  width: 150px;
+  height: 150px;
+}
+.gallery-cont .gallery #gallery2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 5px;
+}
+.gallery-cont .gallery #gallery2 .product-container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  grid-row: span 1;
+}
+.gallery-cont .gallery #gallery2 .product-container .product-item {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  padding-bottom: 50px;
+  background: #FDFBFC;
+}
+.gallery-cont .gallery #gallery2 .product-container .product-item .product-image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.gallery-cont .gallery #gallery2 .product-container .product-description {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  bottom: 0;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 42px 0 6px;
+  position: absolute;
+  flex-direction: column;
+}
+.gallery-cont .gallery #gallery2 .product-container .product-description h4 {
+  font-size: calc(0.8em + 0.3vw);
+  font-weight: 200;
+  color: #1C2536;
+}
+.gallery-cont .gallery #gallery2 .product-container .product-description p {
+  font-size: 0.7em;
+  font-weight: 100;
+  color: #7D876E;
+}
+.gallery-cont .gallery #gallery2 .product-container #favourite {
+  position: absolute;
+  top: 11px;
+  bottom: 11px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  right: 6px;
+  justify-content: center;
+}
+.gallery-cont .gallery #gallery2 .product-container #favourite h3 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  color: #1C2536;
 }
 
 .nav-padding {
@@ -917,6 +1291,7 @@ nav {
   font-weight: 300;
   color: #1C2536;
 }
+
 .gallery-cont .gallery #gallery2 .product-container:nth-child(1) {
   grid-column-start: 1;
   grid-column-end: 3;
@@ -1184,7 +1559,7 @@ u {
 }
 
 footer {
-  width: 100vw;
+  width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;

@@ -85,7 +85,6 @@ app.patch("/updateProduct/:id", (req, res) => {
       .catch((err) => res.send(err));
   });
 });
-
 //editing product via bootstrap madal
 //the :id is a special syntax that can grab the id from a variable in the frontend
 app.get("/product/:id", (req, res) => {
@@ -96,6 +95,45 @@ app.get("/product/:id", (req, res) => {
       console.log(err);
     } else {
       res.send(product);
+    }
+  });
+});
+
+// =================================
+//        UPDATE USER METHOD
+// =================================
+app.patch("/updateUser/:id", (req, res) => {
+  const idParam = req.params.id;
+  User.findById(idParam, (err, user) => {
+    const updatedUser = {
+      username: req.body.username,
+      password: req.body.password,
+      userdescription: req.body.userdescription,
+      profile_img_url: req.body.profile_img_url,
+    };
+    User.updateOne(
+      {
+        _id: idParam,
+      },
+      updatedUser
+    )
+      .then((result) => {
+        res.send(result);
+      })
+      .catch((err) => res.send(err));
+  });
+});
+
+//editing product via bootstrap madal
+//the :id is a special syntax that can grab the id from a variable in the frontend
+app.get("/user/:id", (req, res) => {
+  const userId = req.params.id;
+  console.log(userId);
+  User.findById(userId, (err, user) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(user);
     }
   });
 });
@@ -157,12 +195,12 @@ app.post(`/addProduct`, (req, res) => {
   newProduct
     .save()
     .then((result) => {
-        
+
       console.log(`Added a new product successfully!`);
       // return back to the frontend what just happened
       res.send(result);
       console.log(newProduct.productowner);
-      
+
     })
     .catch((err) => {
       console.log(`Error: ${err.message}`);

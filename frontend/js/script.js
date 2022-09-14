@@ -8,8 +8,10 @@ const goBtn = document.getElementById("go-button");
 // const imageURLInput = document.getElementById("image-url-input");
 
 const gallery0 = document.getElementById(`gallery0`);
+const gallerySwiper = document.getElementById(`gallery-swiper`);
 const gallery1 = document.getElementById(`gallery1`);
 const gallery2 = document.getElementById(`gallery2`);
+
 
 // =================================
 //        NAV BAR FUNCTIONS
@@ -124,6 +126,7 @@ let renderProducts = (products) => {
     // how to render comments: ${renderComments()}
 
     if (item.createdby == sessionStorage.userID) {
+
       result.innerHTML += `
 
         <div class="product-container" id="${item._id}">
@@ -133,9 +136,8 @@ let renderProducts = (products) => {
             <i class="bi bi-pencil edit-button" data-bs-toggle="modal" data-bs-target="#editModal"></i>
             </div>
             <div class="product-image">
-                <img src="${item.img_url}" class="open-image" alt="${
-        item.name
-      }">
+                <img src="${item.img_url}" class="open-image" alt="${item.name
+        }">
             </div>
             <div class="product-description">
                 <h4>${item.name.toUpperCase()}</h4>
@@ -211,14 +213,15 @@ let renderLandingpageGallery = (products) => {
 
     if (item.createdby == sessionStorage.userID) {
       gallery0.innerHTML += `
-      <div class="product-container" id="${item._id}">
+    <div class="product-container" id="${item._id}">
         <div class="product-item">
             <div class="product-buttons">
             <i class="bi bi-trash trash-button" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
             <i class="bi bi-pencil edit-button" data-bs-toggle="modal" data-bs-target="#editModal"></i>
             </div>
             <div class="product-image">
-                <img src="${item.img_url}" alt="${item.name}">
+                <img src="${item.img_url}" class="open-image" alt="${item.name
+        }">
             </div>
             <div class="product-description">
                 <h4>${item.name.toUpperCase()}</h4>
@@ -229,7 +232,7 @@ let renderLandingpageGallery = (products) => {
             </div>
         </div>
     </div>
-      `;
+    `;
     } else {
       gallery0.innerHTML += `
       <div class="product-container" id="${item._id}">
@@ -237,7 +240,7 @@ let renderLandingpageGallery = (products) => {
           <div class="product-buttons">
           </div>
           <div class="product-image">
-              <img src="${item.img_url}" alt="${item.name}">
+              <img src="${item.img_url}" class="open-image" alt="${item.name}">
           </div>
           <div class="product-description">
               <h4>${item.name.toUpperCase()}</h4>
@@ -248,13 +251,49 @@ let renderLandingpageGallery = (products) => {
           </div>
       </div>
   </div>
-      `;
+    `;
     }
   });
 
-  // new items
-  let startNewItems = 5;
-  let endNewItems = 7;
+  // new items 
+  let swiperItemsStart = 10
+  let swiperItemsEnd = 15;
+  let swiperItems = products.slice(swiperItemsStart, swiperItemsEnd).map((item, i) => {
+    return item;
+  });
+
+  swiperItems.forEach((item) => {
+
+    if (item.createdby == sessionStorage.userID) {
+      gallerySwiper.innerHTML += `
+      <div class="swiper-slide">
+      <div class="product-container" id="${item._id}">
+          <div class="product-item">
+              <div class="product-image">
+                  <img src="${item.img_url}" alt="${item.name}">
+              </div>
+          </div>
+      </div>
+  </div>
+    `;
+    } else {
+      gallerySwiper.innerHTML += `
+      <div class="swiper-slide">
+      <div class="product-container" id="${item._id}">
+          <div class="product-item">
+              <div class="product-image">
+                  <img src="${item.img_url}" alt="${item.name}">
+              </div>
+          </div>
+      </div>
+  </div>
+    `;
+    }
+
+  });
+  // new items 
+  let startNewItems = 5
+  let endNewItems = 6;
   let newItems = products.slice(startNewItems, endNewItems).map((item, i) => {
     return item;
   });
@@ -274,29 +313,31 @@ let renderLandingpageGallery = (products) => {
 
     if (item.createdby == sessionStorage.userID) {
       gallery1.innerHTML += `
-      <div class="product-container" id="${item._id}">
-        <div class="product-item">
-            
-            <div class="product-image">
-                <img src="${item.img_url}" alt="${item.name}">
-            </div>
-            
-        </div>
-    </div>
-      `;
-    } else {
-      gallery1.innerHTML += `
-      <div class="product-container" id="${item._id}">
-      <div class="product-item">  
+    <div class="product-container" id="${item._id}">
+      <div class="product-item">
+          
           <div class="product-image">
               <img src="${item.img_url}" alt="${item.name}">
           </div>
-      </div>
-      <div class="product-logo">
-        <img src="../frontend/media/logo_papori_white.svg" alt="logo_papori_white">
+          <div class="product-logo">
+            <img src="../frontend/media/logo_papori_white.svg" alt="logo_papori_white">
+          </div>
       </div>
   </div>
-      `;
+    `;
+    } else {
+      gallery1.innerHTML += `
+    <div class="product-container" id="${item._id}">
+    <div class="product-item">  
+        <div class="product-image">
+            <img src="${item.img_url}" alt="${item.name}">
+        </div>
+    </div>
+    <div class="product-logo">
+      <img src="../frontend/media/logo_papori_white.svg" alt="logo_papori_white">
+    </div>
+</div>
+    `;
     }
   });
 
@@ -324,30 +365,11 @@ let renderLandingpageGallery = (products) => {
 
     if (item.createdby == sessionStorage.userID) {
       gallery2.innerHTML += `
-      <div class="product-container" id="${item._id}">
-        <div class="product-item">
-            <div class="product-buttons">
-            <i class="bi bi-trash trash-button" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
-            <i class="bi bi-pencil edit-button" data-bs-toggle="modal" data-bs-target="#editModal"></i>
-            </div>
-            <div class="product-image">
-                <img src="${item.img_url}" alt="${item.name}">
-            </div>
-            <div class="product-description">
-                <h4>${item.name.toUpperCase()}</h4>
-                <p>BY ${item.productowner.toUpperCase()}</p> 
-                <div id="favourite">
-                <h3>$${item.price}</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-      `;
-    } else {
-      gallery2.innerHTML += `
-      <div class="product-container" id="${item._id}">
+    <div class="product-container" id="${item._id}">
       <div class="product-item">
           <div class="product-buttons">
+          <i class="bi bi-trash trash-button" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
+          <i class="bi bi-pencil edit-button" data-bs-toggle="modal" data-bs-target="#editModal"></i>
           </div>
           <div class="product-image">
               <img src="${item.img_url}" alt="${item.name}">
@@ -361,10 +383,47 @@ let renderLandingpageGallery = (products) => {
           </div>
       </div>
   </div>
-      `;
+    `;
+    } else {
+      gallery2.innerHTML += `
+    <div class="product-container" id="${item._id}">
+    <div class="product-item">
+        <div class="product-buttons">
+        </div>
+        <div class="product-image">
+            <img src="${item.img_url}" alt="${item.name}">
+        </div>
+        <div class="product-description">
+            <h4>${item.name.toUpperCase()}</h4>
+            <p>BY ${item.productowner.toUpperCase()}</p> 
+            <div id="favourite">
+            <h3>$${item.price}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+    `;
     }
   });
 };
+
+
+  // running collect edit buttons function
+  collectEditButtons();
+  // running collect delete buttons function
+  collectDeleteButtons();
+  // running add comment buttons function
+  collectCommentButtons();
+
+  collectProductModals();
+
+  let deleteBtn = document.getElementById("submitDelete");
+  deleteBtn.onclick = () => {
+    console.log(productId);
+    populateDeleteModal(productId);
+  };
+}
+
 
 // =================================
 //      ADD COMMENT FUNCTION
@@ -677,6 +736,7 @@ let renderProductModal = (projectData) => {
 <h2>$${projectData.price}</h2>
 `;
 
+
   productDescription.innerHTML = `
   <div class="name-underline"></div>
   <div class="description-flex">
@@ -689,10 +749,11 @@ let renderProductModal = (projectData) => {
 </div>
 
   `;
-
+  
   productImage.innerHTML = `
 <img src="${projectData.img_url}" alt="${projectData.name}">
 `;
+
 
 // productComments.innerHTML = `
 // <div class="name-underline"></div>
@@ -701,8 +762,6 @@ let renderProductModal = (projectData) => {
 //   <p>No comments yet!</p>
 //   </div>
 // `;
-
-
 };
 
 // Getting data from MongoDB to put in our project modal
@@ -744,9 +803,9 @@ let collectProductModals = () => {
   };
 };
 
-// openImage.onclick = () => {
-//   console.log("you clicked me");
-// }
+openImage.onclick = () => {
+  console.log("you clicked me");
+}
 
 let footerTopInfo1 = document.getElementsByClassName(`footer-top-info1`);
 

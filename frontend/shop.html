@@ -102,6 +102,68 @@
     <div id="result"></div>
   </div>
 
+  <footer>
+    <div class="footer-top">
+
+        <div class="footer-top-info1 wrapper1" id="footer-top-info1">
+            <div class="title">
+                <p>Customer Care</p>
+            </div>
+            <div class="info">
+                <a href="#">Contact</a>
+                <a href="#">Delivery & Shipping</a>
+                <a href="#">Returns & Exchanges</a>
+                <a href="#">My Account</a>
+            </div>
+
+        </div>
+        <div class="footer-top-header wrapper1" id="footer-top-header">
+            <p>Papori</p>
+        </div>
+        <div class="footer-top-info1 wrapper1 right" id="footer-top-info1 ">
+            <div class="title">
+                <p>Info</p>
+            </div>
+            <div class="info">
+                <a href="#">Stockist</a>
+                <a href="#">Size Guide</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="footer-middle">
+        <div class="socials wrapper1">
+
+            <p>instagram</p>
+            <p>tiktok</p>
+            <p>facebook</p>
+            <p>twitter</p>
+        </div>
+        <div class="newsletter wrapper1">
+            <input type="text" name="newsletter" id="newsletter" placeholder="Email Address">
+            <button>Sign Me Up</button>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="copyright wrapper1">
+            <p>© 2021 Papori, all rights reserved.
+            </p>
+        </div>
+        <div class="footer-logo wrapper1">
+            <img src="../frontend/media/logo_papori_footer.svg" alt="logo_nav.svg">
+        </div>
+        <div class="conditions wrapper1">
+            <a href="#">Legal Notice</a>
+            <a href="#">Designed By BMJ</a>
+            <a href="#">Built by BMJ</a>
+        </div>
+    </div>
+
+
+</footer>
+
   <!-- Edit Modal -->
   <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -189,20 +251,41 @@
     </div>
     </div>
   </div>
-    <!-- End of Post Comment Modal  -->
+    <!-- End of Post Delete Modal  -->
 
       <!-- product Modal -->
   <div id="productModal" class="productModal">
     <div class="product-modal-container">
       <div class="product-modal-grid">
         <i id="close-modal" class="fa-solid fa-x"></i>
+        <div id="product-image" class="product-image">
+        </div>
+        <div class="product-title">
+        <div id="product-name" class="product-name"></div>
         <div id="product-owner" class="product-owner">
         </div>
-        <div id="product-name" class="product-name"></div>
-        <div id="product-description"  class="product-description"><p>The application should have functionality to show/hide UI components based on user interaction. For example, it may have multiple screens or use a modal dialog.</p>
       </div>
-        <div id="product-image" class="product-image">
+        <div id="modal-description" style="display: none;"  class="modal-description">
       </div>
+      <div class="modal-message-container">
+      <div class="name-underline"></div>
+      <div class="modal-message">
+        <h3>INQUIRE</h3>
+        <div class="modal-message-inputs">
+        <input placeholder="Write title here . . ." type="text">
+        <input class="modal-message-large" placeholder="Write message here . . ." type="text">
+      </div>
+        <div class="modal-message-buttons">
+<button> <p>BACK</p></button><button><p>SEND</p></button>
+        </div>
+      </div>
+      </div>
+       <div class="product-comments" id="product-comments">
+        <h3>COMMENTS</h3>
+        <div class="comment-input">
+          <input type="text"> <button><p>POST<p></button>
+        </div>
+       </div>
     </div>
   </div>
 

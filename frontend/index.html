@@ -14,16 +14,14 @@
     <!-- bootstraps -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- swiper cdn  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 
     <link rel="stylesheet" href="css/styles.css">
     <title>Summative</title>
 </head>
 
 <body>
-    <div id="filter" style="display: none;"></div>
-
-    <div id="filter" style="display: none;"></div>
-
     <nav>
         <div class="nav-wrapper">
             <div id="nav-bar" class="nav-grid">
@@ -74,17 +72,6 @@
         </div>
     </nav>
 
-    <!-- <div class="nav-padding"></div> -->
-
-    <div id="filter" style="display: none;"></div>
-
-    <!-- Add Product Form  -->
-    <div id="add-product-div"></div>
-
-    <div id="add-product-button">
-        <button id="go-button">Post New Product</button>
-    </div>
-
     <div class="landingpage">
         <div class="star1">
             <img src="../frontend/media/Star 1.svg" alt="star1">
@@ -100,7 +87,7 @@
         </div>
         <div class="landingpage_title">
             <h1>Papori</h1>
-            <p>Nau Mai, Haere Mai</p>
+            <p>Your Neigbourhood, Your Community</p>
         </div>
         <div class="landingpage_logo">
             <img src="../frontend/media/logo_papori.svg" alt="logo_papori">
@@ -112,6 +99,7 @@
     <!-- gallery -->
     <!-- ================ -->
     <div class="gallery-cont">
+
         <div class="gallery">
             <h6>trending now</h6>
             <div id="gallery0"></div>
@@ -121,12 +109,26 @@
         </div>
 
         <div class="gallery">
-            <h6>Whats New</h6>
-            <div id="gallery1"></div>
-            <div class="gallery-button">
-                <button>browse more</button>
+            <h6>Community Certified</h6>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper" id="gallery-swiper">
+                    <!-- swiper pages render here  -->
+                </div>
+
+                <div class="swiper-button-next swiper-button"></div>
+                <div class="swiper-button-prev swiper-button"></div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-logo">
+                    <img src="../frontend/media/logo_papori_white.svg" alt="logo_papori_white">
+                </div>
             </div>
+
         </div>
+
+        <div class="gallery">
+            <div id="gallery1"></div>
+        </div>
+
         <div class="gallery">
             <h6>Our Top Sellers</h6>
             <div id="gallery2"></div>
@@ -141,10 +143,6 @@
     <!-- ================ -->
 
 
-    <div class="result-padding">
-        <!-- Result div that stores all rendered products  -->
-        <div id="result"></div>
-    </div>
 
     <footer>
         <div class="footer-top">
@@ -207,6 +205,23 @@
 
 
     </footer>
+    <!-- delete these  -->
+    <div class="result-padding" style="display: none;">
+        <div id="result"></div>
+    </div>
+
+    <!-- <div class="nav-padding"></div> -->
+
+    <div id="filter" style="display: none;"></div>
+
+    <!-- Add Product Form  -->
+    <div id="add-product-div" style="display: none;"></div>
+
+    <div id="add-product-button" style="display: none;">
+        <button id="go-button">Post New Product</button>
+    </div>
+
+    <!-- delete these  -->
 
     <!-- Edit Modal -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -271,7 +286,6 @@
                 <div class="modal-footer">
                     <button id="submitComment" name="submitCommentButton" type="submit" class="btn btn-primary"
                         data-bs-dismiss="modal">Submit Comment</button>
-
                 </div>
             </div>
         </div>
@@ -301,31 +315,39 @@
     <!-- End of Confirm Delete Modal  -->
 
     <!-- product Modal -->
-  <div id="productModal" class="productModal">
-    <div class="product-modal-container">
-      <div class="product-modal-grid">
-        <i id="close-modal" class="fa-solid fa-x"></i>
-        <div id="product-owner" class="product-owner">
+    <div id="productModal" class="productModal">
+        <div class="product-modal-container">
+            <div class="product-modal-grid">
+                <i id="close-modal" class="fa-solid fa-x"></i>
+                <div id="product-owner" class="product-owner">
+                </div>
+                <div id="product-name" class="product-name"></div>
+                <div id="product-description" class="product-description">
+                    <p>The application should have functionality to show/hide UI components based on user interaction.
+                        For example, it may have multiple screens or use a modal dialog.</p>
+                </div>
+                <div id="product-image" class="product-image">
+                </div>
+            </div>
         </div>
-        <div id="product-name" class="product-name"></div>
-        <div id="product-description"  class="product-description"><p>The application should have functionality to show/hide UI components based on user interaction. For example, it may have multiple screens or use a modal dialog.</p>
-      </div>
-        <div id="product-image" class="product-image">
-      </div>
     </div>
-  </div>
-
-  <!-- end of product modal -->
+    <!-- end of product modal -->
 
     <!-- jquery -->
     <script src="https://kit.fontawesome.com/ab86417da5.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
+    <!-- swiper js  -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
 
+    <!-- <script src="js/landingpage.js"></script> -->
+    <script src="js/swiper.js"></script>
     <script src="js/script.js"></script>
 </body>
 

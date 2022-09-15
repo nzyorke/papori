@@ -27,12 +27,14 @@ footer {
 
             .title {
                 width: 100%;
-                font-size: 19px;
-                font-weight: 600;
-                letter-spacing: 2.5px;
                 padding: 10px 0;
-                font-family: $jakarta;
 
+                p {
+                    font-size: 15px;
+                    font-weight: 600;
+                    letter-spacing: 2.5px;
+                    font-family: $jakarta;
+                }
             }
 
             .info {
@@ -49,9 +51,15 @@ footer {
 
                 a {
                     font-family: $jakarta;
-                    letter-spacing: .5px;
-                    font-size: 16px;
+                    font-weight: 200;
+                    letter-spacing: 2px;
+                    line-height: 20px;
+                    font-size: 12px;
                     padding: 5px;
+                }
+
+                a:hover {
+                    color: $white;
                 }
 
             }
@@ -91,7 +99,7 @@ footer {
 
             p {
                 font-family: $jakarta;
-                font-size: 14px;
+                font-size: 12px;
                 letter-spacing: .5px;
                 text-transform: capitalize;
             }
@@ -112,13 +120,16 @@ footer {
             }
 
             button {
-                all: unset;
+                border: none;
+                color: $white;
+                letter-spacing: .5px;
                 height: 50px;
-                width: 25%;
+                padding: 10px;
                 background-color: $red;
-                font-size: 15px;
-                font-weight: 600;
-                padding-left: 5px;
+                font-size: 12px;
+                font-weight: 500;
+                font-family: $jakarta;
+
             }
         }
     }
@@ -133,14 +144,14 @@ footer {
 
         .copyright {
             p {
-                font-size: 14px;
+                font-size: 10px;
                 letter-spacing: .5px;
             }
         }
 
         .footer-logo {
             img {
-                width: 80px;
+                width: 60px;
             }
         }
 
@@ -150,7 +161,7 @@ footer {
             justify-content: space-between;
 
             a {
-                font-size: 14px;
+                font-size: 10px;
                 letter-spacing: .5px;
             }
         }
@@ -175,13 +186,12 @@ footer {
 
                 .title {
                     width: 100%;
-                    font-size: 19px;
-                    font-weight: 600;
-                    letter-spacing: 2.5px;
-                    padding: 10px 0;
-                    font-family: $jakarta;
+
                     text-align: left;
 
+                    p {
+                        font-size: 12px;
+                    }
                 }
 
                 .info {
@@ -200,18 +210,11 @@ footer {
                         width: 100%;
                         display: inline-block;
                         font-family: $jakarta;
-                        letter-spacing: .5px;
-                        font-size: 16px;
-                        padding: 5px;
+                        line-height: 15px;
+                        font-size: 10px;
                         text-align: left;
                     }
 
-                }
-            }
-
-            .footer-top-info1.active {
-                .info {
-                    height: 120px;
                 }
             }
 
@@ -230,20 +233,340 @@ footer {
             ;
 
             .footer-top-header {
-
+                width: 70%;
                 display: block;
 
                 p {
                     color: $red;
                     font-family: $mirra;
-                    font-size: 80px;
+                    font-size: 120px;
                 }
             }
         }
 
         .footer-middle {
             width: 100%;
-            @include flex-column;
+            @include flex-row;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 2px solid $white;
+            padding: 10px 0;
+
+            .socials {
+                width: 100%;
+                @include flex-row;
+                align-items: center;
+                justify-content: space-between;
+
+                p {
+                    font-family: $jakarta;
+                    font-size: 12px;
+                    letter-spacing: 1px;
+                    text-transform: capitalize;
+                }
+            }
+
+            .newsletter {
+                width: 100%;
+                @include flex-row;
+                align-items: center;
+
+
+                // justify-content: space-between;
+                input {
+                    width: 75%;
+                    height: 40px;
+                    padding: 5px;
+                    font-family: $jakarta;
+                }
+
+                button {
+                    height: 40px;
+                    width: 25%;
+                    background-color: $red;
+                    font-size: 10px;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .footer-bottom {
+            width: 100%;
+            @include flex-row;
+            align-items: flex-end;
+            justify-content: center;
+            font-family: $jakarta;
+            padding: 10px 0;
+
+            .copyright {
+                width: 30%;
+
+                p {
+                    font-size: px;
+                    letter-spacing: .5px;
+                }
+            }
+
+            .footer-logo {
+                @include flex-column;
+                align-items: center;
+                justify-content: center;
+                width: 30%;
+
+                img {
+                    width: 60px;
+                }
+            }
+
+            .conditions {
+                width: 30%;
+                @include flex-row;
+                justify-content: space-between;
+
+                a {
+                    font-size: 8px;
+                    letter-spacing: .5px;
+                }
+            }
+        }
+    }
+}
+
+// laptop 
+@media only screen and (min-width: 1024px) {
+    footer {
+
+        .footer-top {
+            width: 100%;
+            @include flex-row;
+            justify-content: space-between;
+
+            .footer-top-info1 {
+                width: 100%;
+                border-bottom: none;
+
+                .title {
+                    width: 100%;
+
+                    text-align: left;
+
+                    p {
+                        font-size: 12px;
+                    }
+                }
+
+                .info {
+                    position: relative;
+                    width: 100%;
+                    @include flex-column;
+                    align-items: center;
+                    justify-content: center;
+
+                    height: 120px;
+                    overflow: none;
+                    transition: all ease 0.3s;
+                    cursor: default;
+
+                    a {
+                        width: 100%;
+                        display: inline-block;
+                        font-family: $jakarta;
+                        line-height: 15px;
+                        font-size: 10px;
+                        text-align: left;
+                    }
+
+                }
+            }
+
+            .right {
+                .title {
+                    text-align: right;
+                }
+
+                .info {
+                    a {
+                        text-align: right;
+                    }
+                }
+            }
+
+            .footer-top-header {
+                width: 70%;
+                display: block;
+
+                p {
+                    color: $red;
+                    font-family: $mirra;
+                    font-size: 180px;
+                    line-height: 180px;
+                }
+            }
+        }
+
+        .footer-middle {
+            width: 100%;
+            @include flex-row;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 2px solid $white;
+            padding: 10px 0;
+
+            .socials {
+                width: 100%;
+                @include flex-row;
+                align-items: center;
+                justify-content: space-between;
+
+                p {
+                    font-family: $jakarta;
+                    font-size: 12px;
+                    letter-spacing: 1px;
+                    text-transform: capitalize;
+                }
+            }
+
+            .newsletter {
+                width: 100%;
+                @include flex-row;
+                align-items: center;
+
+
+                // justify-content: space-between;
+                input {
+                    width: 75%;
+                    height: 40px;
+                    padding: 5px;
+                    font-family: $jakarta;
+                }
+
+                button {
+                    height: 40px;
+                    width: 25%;
+                    background-color: $red;
+                    font-size: 10px;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .footer-bottom {
+            width: 100%;
+            @include flex-row;
+            align-items: flex-end;
+            justify-content: center;
+            font-family: $jakarta;
+            padding: 10px 0;
+
+            .copyright {
+                width: 30%;
+
+                p {
+                    font-size: px;
+                    letter-spacing: .5px;
+                }
+            }
+
+            .footer-logo {
+                @include flex-column;
+                align-items: center;
+                justify-content: center;
+                width: 30%;
+
+                img {
+                    width: 60px;
+                }
+            }
+
+            .conditions {
+                width: 30%;
+                @include flex-row;
+                justify-content: space-between;
+
+                a {
+                    font-size: 8px;
+                    letter-spacing: .5px;
+                }
+            }
+        }
+    }
+}
+
+// desktop 
+@media only screen and (min-width: 1440px) {
+    footer {
+
+        .footer-top {
+            width: 100%;
+            @include flex-row;
+            justify-content: space-between;
+
+            .footer-top-info1 {
+                width: 100%;
+                border-bottom: none;
+
+                .title {
+                    width: 100%;
+
+                    text-align: left;
+
+                    p {
+                        font-size: 20px;
+                    }
+                }
+
+                .info {
+                    position: relative;
+                    width: 100%;
+                    @include flex-column;
+                    align-items: center;
+                    justify-content: center;
+
+                    height: 120px;
+                    overflow: none;
+                    transition: all ease 0.3s;
+                    cursor: default;
+
+                    a {
+                        width: 100%;
+                        display: inline-block;
+                        font-family: $jakarta;
+                        line-height: 20px;
+                        font-size: 16px;
+                        text-align: left;
+                    }
+
+                }
+            }
+
+            .right {
+                .title {
+                    text-align: right;
+                }
+
+                .info {
+                    a {
+                        text-align: right;
+                    }
+                }
+            }
+
+            .footer-top-header {
+                width: 70%;
+                display: block;
+
+                p {
+                    color: $red;
+                    font-family: $mirra;
+                    font-size: 200px;
+                    line-height: 220px;
+                }
+            }
+        }
+
+        .footer-middle {
+            width: 100%;
+            @include flex-row;
             align-items: center;
             justify-content: center;
             border-bottom: 2px solid $white;
@@ -258,7 +581,7 @@ footer {
                 p {
                     font-family: $jakarta;
                     font-size: 14px;
-                    letter-spacing: .5px;
+                    letter-spacing: 1px;
                     text-transform: capitalize;
                 }
             }
@@ -272,32 +595,32 @@ footer {
                 // justify-content: space-between;
                 input {
                     width: 75%;
-                    height: 50px;
+                    height: 40px;
                     padding: 5px;
                     font-family: $jakarta;
                 }
 
                 button {
-                    all: unset;
-                    height: 50px;
+                    height: 40px;
                     width: 25%;
                     background-color: $red;
-                    font-size: 15px;
-                    font-weight: 600;
-                    padding-left: 5px;
+                    font-size: 10px;
+                    font-weight: 500;
                 }
             }
         }
 
         .footer-bottom {
             width: 100%;
-            @include flex-column;
-            align-items: center;
+            @include flex-row;
+            align-items: flex-end;
             justify-content: center;
             font-family: $jakarta;
             padding: 10px 0;
 
             .copyright {
+                width: 30%;
+
                 p {
                     font-size: 14px;
                     letter-spacing: .5px;
@@ -305,13 +628,18 @@ footer {
             }
 
             .footer-logo {
+                @include flex-column;
+                align-items: center;
+                justify-content: center;
+                width: 30%;
+
                 img {
                     width: 80px;
                 }
             }
 
             .conditions {
-                width: 90%;
+                width: 30%;
                 @include flex-row;
                 justify-content: space-between;
 
@@ -323,9 +651,3 @@ footer {
         }
     }
 }
-
-// laptop 
-@media only screen and (min-width: 1024px) {}
-
-// desktop 
-@media only screen and (min-width: 1440px) {}

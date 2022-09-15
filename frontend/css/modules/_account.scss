@@ -1,0 +1,212 @@
+// EDIT ACCOUNT PAGE 
+
+.edit-account-header {
+    height: 60px;
+    border-bottom: 2px solid #1C2536;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 25px;
+    padding-top: 10px;
+}
+
+.edit-title {
+    font-family: $sen;
+    font-weight: bold;
+}
+
+.back-button {
+    background-color: #1C2536;
+    color: white;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    border-radius: 0px;
+    font-size: 13px;
+    padding: 10px;
+    width: 160px;
+    border: none;
+    margin-left: 46px;
+    margin-top: -1px;
+}
+
+
+
+.profile-image {
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100px;
+    padding: 20px;
+}
+
+#edit-account-form {
+    width: 95%;
+    margin: 0 auto;
+    height: 700px;
+    padding-left: 10px;
+}
+
+.edit-label {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: $blue;
+}
+
+.edit-input,
+.edit-description-input {
+    font-family: $jakarta;
+    all: unset;
+    width: 94%;
+    margin-left: 5px;
+    border-radius: 1px;
+    height: 40px;
+    padding-left: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    background: white;
+}
+
+.edit-description-input {
+    height: 140px;
+}
+
+.button-container {
+    width: 95%;
+    margin-left: 5px;
+    height: 70px;
+}
+
+#edit-button1,
+#edit-button2 {
+    background-color: #1C2536;
+    color: white;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    border-radius: 0px;
+    font-size: 17px;
+    padding: 14px;
+    width: 100%;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.edit-password-modal-content {
+    background-color: $tan;
+    width: 99%;
+    height: 350px;
+    padding: 10px;
+    border: 1px solid $blue;
+}
+
+.edit-password-input,
+.edit-password-input-old {
+    font-family: $jakarta;
+    all: unset;
+    width: 94%;
+    margin-left: 5px;
+    border-radius: 1px;
+    height: 40px;
+    padding-left: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    background: white;
+}
+
+.edit-password-label,
+.edit-password-label-old {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: $blue;
+}
+
+.description-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+
+// ACCOUNT PAGE 
+
+.account-header {
+    height: 60px;
+    border-top: 2px solid #1C2536;
+    border-bottom: 2px solid #1C2536;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 25px;
+    padding-top: 10px;
+}
+
+.account-title {
+    font-family: $sen;
+    font-weight: bold;
+}
+
+.back-button-account1,
+.back-button-account2 {
+    background-color: #1C2536;
+    color: white;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    border-radius: 0px;
+    font-size: 12px;
+    padding: 10px;
+    width: 110px;
+    border: none;
+    margin-bottom: 20px;
+    margin-top: -2px;
+}
+
+.back-button-account1 {
+    margin-left: 40px;
+}
+
+
+.back-button-account2 {
+    margin-left: 15px;
+}
+
+#username-account {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: #1C2536;
+}
+
+#listings-favourites-container {
+    font-family: $sen;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: "Sen", sans-serif;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1.5px solid #FDFBFC;
+}
+
+#listings-title,
+#favourites-title {
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 2px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 14px;
+}
+
+#listings-title {
+    padding-left: 110px;
+}
+
+#favourites-title {
+    padding-left: 65px;
+}
+
+#account-result {
+    column-count: 2;
+    padding: 20px;
+}

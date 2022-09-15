@@ -65,8 +65,10 @@
         </div>
         <div id="account-details">
             <div class="account-functions">
-                <p>ACCOUNT</p>
-            </div>
+                <a href="account.html">
+                  <p>ACCOUNT</p>
+                </a>
+                </div>
             <div class="account-functions">
                 <p id="sign-out-button">LOGOUT</p>
             </div>
@@ -114,13 +116,13 @@
         <br>
         <input class="edit-input" id="username-input" name="username-input" type="text"> <br>
 
-        <label class="edit-label" for="email-input">Email: </label>
+        <!-- <label class="edit-label" for="email-input">Email: </label>
         <br>
-        <input class="edit-input" id="email-input" name="email-input" type="text"> <br>
+        <input class="edit-input" id="email-input" name="email-input" type="text"> <br> -->
 
-        <label class="edit-label" for="description-input">Description: </label>
+        <label class="edit-label" for="bio-input">Bio: </label>
         <br>
-        <input class="edit-description-input" id="description-input" name="description-input" type="text"> <br>
+        <input class="edit-description-input" id="bio-input" name="description-input" type="text"> <br>
 
         <div class="button-container">
             <button id="edit-button1" data-bs-toggle="modal" data-bs-target="#updatePasswordModal">RESET
@@ -221,17 +223,6 @@
         </div>
     </div>
 
-    <div id="filter" style="display: none;"></div>
-    <div id="result" style="display: none;"></div>
-    <div id="account-result" style="display: none;"></div>
-    <div id="gallery0" style="display: none;"></div>
-    <div id="gallery1" style="display: none;"></div>
-    <div id="gallery-swiper" style="display: none;"></div>
-    <div id="gallery2" style="display: none;"></div>
-    <div id="productModal" style="display: none;"></div>
-    <div id="close-modal" style="display: none;"></div>
-    <div id="open-image" style="display: none;"></div>
-
     <!-- End of Change Password Modal  -->
 
     <!-- jquery -->
@@ -243,7 +234,7 @@
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
 
-    <script src="js/script.js"></script>
+    <script src="js/editaccount.js"></script>
 </body>
 
 </html>

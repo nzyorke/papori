@@ -30,12 +30,14 @@
 
 
 .profile-image {
-    width: 40%;
+    height: 150px;
+    width: 150px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     border-radius: 100px;
     padding: 20px;
+object-fit: cover;
 }
 
 #edit-account-form {
@@ -172,7 +174,7 @@
 #username-account {
     text-align: center;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1.8em;
     color: #1C2536;
 }
 
@@ -209,4 +211,14 @@
 #account-result {
     column-count: 2;
     padding: 20px;
+}
+
+#bio-account{
+    display: flex;
+    justify-content: center;
+    padding: 5% 20%;
+    text-align: center;
+    font-weight: 300;
+    font-family: $jakarta;
+    font-size: 1.4em;
 }

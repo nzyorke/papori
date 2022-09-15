@@ -52,6 +52,7 @@ signupBtn.onclick = function () {
                             sessionStorage.setItem('userID', user._id);
                             sessionStorage.setItem('userName', user.username);
                             sessionStorage.setItem('profileImg', user.profile_img_url);
+                            sessionStorage.setItem('bio', user.userdescription);
 
                             // redirect automatically
                             document.location.href = 'index.html';

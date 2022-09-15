@@ -1,8 +1,10 @@
-
-const goBtn = document.getElementById("addProduct");
-const accountResult = document.getElementById("account-result");
-
-
+// =================================
+//        DECLARE INPUTS
+// =================================
+const gallery0 = document.getElementById(`gallery0`);
+const gallerySwiper = document.getElementById(`gallery-swiper`);
+const gallery1 = document.getElementById(`gallery1`);
+const gallery2 = document.getElementById(`gallery2`);
 
 // =================================
 //        NAV BAR FUNCTIONS
@@ -19,82 +21,51 @@ function navExpand() {
   navBar.classList.toggle("nav-expand");
 }
 
+
+
 // =================================
 //        DISPLAY PRODUCTS
 // =================================
 
 // This function allows us to display our products from the MongoDB on our app
 let showAllProduct = () => {
-    $.ajax({
-      type: "GET",
-      url: "http://localhost:3400/allProduct",
-      // your success function contains a object which can be named anything
-      success: (products) => {
-        console.log(products);
-        renderProductsAccount(products);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
-  };
-
-
-// =================================
-//        ADD NEW PRODUCTS
-// =================================
-
-let addNewProducts = () => {
-  goBtn.onclick = () => {
-    const nameInput = document.getElementById("name-input");
-    const priceInput = document.getElementById("price-input");
-    const descriptionInput = document.getElementById("description-input");
-    const imageURLInput = document.getElementById("image-url-input");
-
-    $.ajax({
-      url: "http://localhost:3400/addProduct",
-      // use the post type to create data somewhere
-      // requesting to POST our data
-      type: "POST",
-      // we can send objects through to the backend, using the data argument
-      data: {
-        // the first property (i.e. the one on the left) called name has to be spelt exactly as the schema
-        name: nameInput.value,
-        price: priceInput.value,
-        description: descriptionInput.value,
-        img_url: imageURLInput.value,
-        createdby: sessionStorage.userID,
-        productowner: sessionStorage.userName,
-      },
-      success: () => {
-        console.log("A new product was added.");
-        showAllProduct();
-        console.log(sessionStorage.userName);
-        console.log(sessionStorage.userID);
-      },
-      error: () => {
-        console.log("Error: cannot reach the backend");
-      },
-    });
-  };
+  $.ajax({
+    type: "GET",
+    url: "http://localhost:3400/allProduct",
+    // your success function contains a object which can be named anything
+    success: (products) => {
+      console.log(products);
+      renderLandingpageGallery(products);
+    },
+    error: (error) => {
+      console.log(error);
+    },
+  });
 };
 
-populateProductModal = (productId) => {
-    console.log(productId);
-    $.ajax({
-      url: `http://localhost:3400/product/${productId}`,
-      type: "GET",
-      success: (productData) => {
-        console.log("Product was found!");
-        console.log(productData);
-        renderProductModal(productData, productId);
-      },
-      error: () => {
-        console.log(error);
-      },
-    });
-  };
+// =================================
+//  CALL AJAX FOR MODAL COLLECTION
+// =================================
 
+populateProductModal = (productId) => {
+  console.log(productId);
+  $.ajax({
+    url: `http://localhost:3400/product/${productId}`,
+    type: "GET",
+    success: (productData) => {
+      console.log("Product was found!");
+      console.log(productData);
+      renderProductModal(productData, productId);
+    },
+    error: () => {
+      console.log(error);
+    },
+  });
+};
+
+// =================================
+//        MODAl FUNCTIONS
+// =================================
 
 
 const openImage = document.getElementsByClassName("open-image");
@@ -122,19 +93,23 @@ openImage.onclick = () => {
   console.log("you clicked me");
 };
 
-
-
 // =================================
-//   RENDER USER ACCOUNT PRODUCTS
+//    RENDER PRODUCTS TO DISPLAY
 // =================================
 
-// This function renders our products
-let renderProductsAccount = (products) => {
-  let productId = products.id;
-  console.log("the render products function is working");
-  accountResult.innerHTML = "";
-  products.forEach((item) => {
-    //  RENDER COMMENTS
+ 
+
+let renderLandingpageGallery = (products) => {
+  // trending items
+  let startTrendingItems;
+  let endTrendingItems = 4;
+  let trendingItems = products
+    .slice(startTrendingItems, endTrendingItems)
+    .map((item, i) => {
+      return item;
+    });
+
+  trendingItems.forEach((item) => {
     let renderComments = () => {
       if (item.comments.length > 0) {
         let allComments = "";
@@ -147,30 +122,199 @@ let renderProductsAccount = (products) => {
       }
     };
 
-    // how to render comments: ${renderComments()}
+    if (item.createdby == sessionStorage.userID) {
+      gallery0.innerHTML += `
+    <div class="product-container" id="${item._id}">
+        <div class="product-item">
+            <div class="product-buttons">
+            <i class="bi bi-trash trash-button" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
+            <i class="bi bi-pencil edit-button" data-bs-toggle="modal" data-bs-target="#editModal"></i>
+            </div>
+            <div class="product-image">
+                <img src="${item.img_url}" class="open-image" alt="${
+        item.name
+      }">
+            </div>
+            <div class="product-description">
+                <h4>${item.name.toUpperCase()}</h4>
+                <p>BY ${item.productowner.toUpperCase()}</p> 
+                <div id="favourite">
+                <h3>$${item.price}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+    } else {
+      gallery0.innerHTML += `
+      <div class="product-container" id="${item._id}">
+      <div class="product-item">
+          <div class="product-buttons">
+          </div>
+          <div class="product-image">
+              <img src="${item.img_url}" class="open-image" alt="${item.name}">
+          </div>
+          <div class="product-description">
+              <h4>${item.name.toUpperCase()}</h4>
+              <p>BY ${item.productowner.toUpperCase()}</p> 
+              <div id="favourite">
+              <h3>$${item.price}</h3>
+              </div>
+          </div>
+      </div>
+  </div>
+    `;
+    }
+  });
+
+  // new items
+  let swiperItemsStart = 10;
+  let swiperItemsEnd = 15;
+  let swiperItems = products
+    .slice(swiperItemsStart, swiperItemsEnd)
+    .map((item, i) => {
+      return item;
+    });
+
+  swiperItems.forEach((item) => {
+    if (item.createdby == sessionStorage.userID) {
+      gallerySwiper.innerHTML += `
+      <div class="swiper-slide">
+      <div class="product-container" id="${item._id}">
+          <div class="product-item">
+              <div class="product-image">
+                  <img src="${item.img_url}" alt="${item.name}">
+              </div>
+          </div>
+      </div>
+  </div>
+    `;
+    } else {
+      gallerySwiper.innerHTML += `
+      <div class="swiper-slide">
+      <div class="product-container" id="${item._id}">
+          <div class="product-item">
+              <div class="product-image">
+                  <img src="${item.img_url}" alt="${item.name}">
+              </div>
+          </div>
+      </div>
+  </div>
+    `;
+    }
+  });
+  // new items
+  let startNewItems = 5;
+  let endNewItems = 6;
+  let newItems = products.slice(startNewItems, endNewItems).map((item, i) => {
+    return item;
+  });
+
+  newItems.forEach((item) => {
+    let renderComments = () => {
+      if (item.comments.length > 0) {
+        let allComments = "";
+        item.comments.forEach((comment) => {
+          allComments += `<li>${comment.text}</li>`;
+        });
+        return allComments;
+      } else {
+        return "<p>Be the first to place a comment!</p>";
+      }
+    };
 
     if (item.createdby == sessionStorage.userID) {
-      accountResult.innerHTML += `
-  
-      <div class="product-container" id="${item._id}">
+      gallery1.innerHTML += `
+    <div class="product-container" id="${item._id}">
+      <div class="product-item">
+          
+          <div class="product-image">
+              <img src="${item.img_url}" alt="${item.name}">
+          </div>
+          <div class="product-logo">
+            <img src="../frontend/media/logo_papori_white.svg" alt="logo_papori_white">
+          </div>
+      </div>
+  </div>
+    `;
+    } else {
+      gallery1.innerHTML += `
+    <div class="product-container" id="${item._id}">
+    <div class="product-item">  
+        <div class="product-image">
+            <img src="${item.img_url}" alt="${item.name}">
+        </div>
+    </div>
+    <div class="product-logo">
+      <img src="../frontend/media/logo_papori_white.svg" alt="logo_papori_white">
+    </div>
+</div>
+    `;
+    }
+  });
+
+  // top sellers
+  let startTopSellers = 8;
+  let endTopSellers = 11;
+  let topSellerItems = products
+    .slice(startTopSellers, endTopSellers)
+    .map((item, i) => {
+      return item;
+    });
+
+  topSellerItems.forEach((item) => {
+    let renderComments = () => {
+      if (item.comments.length > 0) {
+        let allComments = "";
+        item.comments.forEach((comment) => {
+          allComments += `<li>${comment.text}</li>`;
+        });
+        return allComments;
+      } else {
+        return "<p>Be the first to place a comment!</p>";
+      }
+    };
+
+    if (item.createdby == sessionStorage.userID) {
+      gallery2.innerHTML += `
+    <div class="product-container" id="${item._id}">
       <div class="product-item">
           <div class="product-buttons">
           <i class="bi bi-trash trash-button" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
           <i class="bi bi-pencil edit-button" data-bs-toggle="modal" data-bs-target="#editModal"></i>
           </div>
           <div class="product-image">
-              <img src="${item.img_url}" class="open-image" alt="${item.name}">
+              <img src="${item.img_url}" alt="${item.name}">
           </div>
           <div class="product-description">
-          <h4>${item.name.toUpperCase()}</h4>
-          <p>BY ${item.productowner.toUpperCase()}</p>
-          <div id="favourite">
-          <h3>$${item.price}</h3>
+              <h4>${item.name.toUpperCase()}</h4>
+              <p>BY ${item.productowner.toUpperCase()}</p> 
+              <div id="favourite">
+              <h3>$${item.price}</h3>
+              </div>
           </div>
       </div>
   </div>
+    `;
+    } else {
+      gallery2.innerHTML += `
+    <div class="product-container" id="${item._id}">
+    <div class="product-item">
+        <div class="product-buttons">
+        </div>
+        <div class="product-image">
+            <img src="${item.img_url}" alt="${item.name}">
+        </div>
+        <div class="product-description">
+            <h4>${item.name.toUpperCase()}</h4>
+            <p>BY ${item.productowner.toUpperCase()}</p> 
+            <div id="favourite">
+            <h3>$${item.price}</h3>
+            </div>
+        </div>
+    </div>
 </div>
-   `;
+    `;
     }
   });
 
@@ -189,8 +333,6 @@ let renderProductsAccount = (products) => {
     populateDeleteModal(productId);
   };
 };
-
-showAllProduct();
 
 // =================================
 //      ADD COMMENT FUNCTION
@@ -241,22 +383,9 @@ populateEditModal = (productId) => {
   });
 };
 
-
-populateAccountEditPage = () => {
-  userId = sessionStorage.userID;
-  $.ajax({
-    url: `http://localhost:3400/user/${userId}`,
-    type: "GET",
-    success: (userData) => {
-      console.log("Product was found!");
-      console.log(userData);
-      fillEditUserInputs(userData, userId);
-    },
-    error: () => {
-      console.log(error);
-    },
-  });
-};
+// =================================
+//    CALL AJAX TO DELETE PRODUCT
+// =================================
 
 populateDeleteModal = (productId) => {
   $.ajax({
@@ -278,9 +407,13 @@ let renderDeleteModal = (productData) => {
   let deleteBtn = document.getElementById("submitDelete");
   deleteBtn.onclick = () => {
     deleteProduct(productId);
-    console.log("hello");
+    console.log(productId);
   };
 };
+
+// =================================
+//      EDIT BUTTON FUNCTION
+// =================================
 
 //this function will handle all our edits and add a click listener
 //if we click on an edit button it will get the id from the parent node (the div around around our prodcuts)
@@ -372,7 +505,6 @@ let deleteProduct = (productId) => {
     url: `http://localhost:3400/deleteProduct/${productId}`,
     type: "DELETE",
     success: () => {
-      console.log("you have deleted this item");
       // at this point, we can assume that the delete was successful
       showAllProduct();
     },
@@ -381,7 +513,6 @@ let deleteProduct = (productId) => {
     },
   });
 };
-
 
 
 // this function will handle all our deletes
@@ -395,7 +526,6 @@ let collectDeleteButtons = () => {
     deleteButtonsArray[i].onclick = () => {
       let productId = deleteButtonsArray[i].parentNode.parentNode.parentNode.id;
       populateDeleteModal(productId);
-      console.log(productId);
       // delete product based on the id
     };
   }
@@ -419,7 +549,11 @@ let collectCommentButtons = () => {
   }
 };
 
-const postProductBtnDiv = document.getElementById("add-product-button");
+// ==============================================
+//   RUNNING THE FUNCTION TO SHOW ALL PRODUCTS
+// ==============================================
+showAllProduct();
+
 // ==============================================
 //      CHECK IF USER IS LOGGED IN OR NOT
 // ==============================================
@@ -432,7 +566,6 @@ let checkLogin = () => {
   if (sessionStorage.userID) {
     // console.log("You're logged in")
     // console.log(sessionStorage.userName)
-    addNewProducts();
     navContent = `
         <div class="account-button" id="nav-img-acc">
       <span id="username">${sessionStorage.userName.toUpperCase()}</span>
@@ -442,9 +575,6 @@ let checkLogin = () => {
       </div>
       `;
   } else {
-    postProductBtnDiv.innerHTML = `
-        <a href="login.html"><button id="go-button">Post New Product</button></a>
-        `;
     navContent = `<div id="nav-btn-acc">
         <a id="account-symbol" href="signup.html"><span class="material-symbols-outlined"> account_circle </span></a>
         <button id="account-button">ACCOUNT</button>
@@ -456,36 +586,6 @@ let checkLogin = () => {
   userDetails.innerHTML = navContent;
 };
 
-// =======================================
-// ADD PROFILE PICTURES FOR ACCOUNT PAGES
-// =======================================
-let displayProfilePictures = () => {
-  let accountProfileHeader = document.getElementById("account-profile-header");
-  let accountBio = document.getElementById("account-bio");
-
-  // let userDescription = document.getElementById("profile-description-input").value;
-  if (sessionStorage.userID) {
-    addNewProducts();
-
-    accountProfileHeader.innerHTML = `
-      <img class="profile-image" src="${sessionStorage.profileImg}">
-      <p id="username-account">${sessionStorage.userName.toUpperCase()}</p>
-      `;
-      if (sessionStorage.bio == "undefined") {
-        accountBio.innerHTML =
-      `
-      <p id="bio-account">No bio yet!</p>
-      `;
-  } else {
-    accountBio.innerHTML =
-    `
-    <p id="bio-account">${sessionStorage.bio}</p>
-    `;
-};
-  }
-}
-
-displayProfilePictures();
 
 checkLogin();
 
@@ -502,6 +602,10 @@ if (sessionStorage.userID) {
     logOut();
   };
 }
+
+// =================================
+//    ACCOUNT BUTTON FUNCTIONS
+// =================================
 
 // const accountBtn = document.getElementById('nav-btn-acc');
 const accountImg = document.getElementById("nav-img-acc");
@@ -562,5 +666,23 @@ let renderProductModal = (projectData) => {
   //   </div>
   // `;
 };
+
+let footerTopInfo1 = document.getElementsByClassName(`footer-top-info1`);
+
+
+
+for (let i = 0; i < footerTopInfo1.length; i++) {
+
+  const element = footerTopInfo1[i];
+
+  element.addEventListener("click", function () {
+
+    this.classList.toggle("active");
+
+    console.log("clicked");
+
+  });
+
+}
 
 

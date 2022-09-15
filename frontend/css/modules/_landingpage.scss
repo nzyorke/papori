@@ -5,7 +5,6 @@
     background-color: $tan;
     @include flex-column;
     align-items: center;
-    padding-top: 300px;
 
     .star1,
     .star2,
@@ -33,9 +32,14 @@
     }
 
     .landingpage_title {
+        padding-bottom: 40%;
         width: 100%;
-        height: auto;
+        height: 100vh;
         text-align: center;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        flex-direction: column;
 
         h1 {
             font-family: $mirra;

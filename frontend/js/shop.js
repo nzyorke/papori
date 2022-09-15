@@ -1,17 +1,9 @@
+// =================================
+//        DECLARE INPUTS
+// =================================
+
 const result = document.getElementById("result");
-const accountResult = document.getElementById("account-result");
 const goBtn = document.getElementById("go-button");
-
-// declare all our inputs
-// const nameInput = document.getElementById("name-input");
-// const priceInput = document.getElementById("price-input");
-// const descriptionInput = document.getElementById("description-input");
-// const imageURLInput = document.getElementById("image-url-input");
-
-const gallery0 = document.getElementById(`gallery0`);
-const gallerySwiper = document.getElementById(`gallery-swiper`);
-const gallery1 = document.getElementById(`gallery1`);
-const gallery2 = document.getElementById(`gallery2`);
 
 // =================================
 //        NAV BAR FUNCTIONS
@@ -53,8 +45,6 @@ let showAllProduct = () => {
     success: (products) => {
       console.log(products);
       renderProducts(products);
-      renderProductsAccount(products);
-      renderLandingpageGallery(products);
     },
     error: (error) => {
       console.log(error);
@@ -62,10 +52,11 @@ let showAllProduct = () => {
   });
 };
 
-const addNewProductDiv = document.getElementById("add-product-div");
 // =================================
 //        ADD NEW PRODUCTS
 // =================================
+const addNewProductDiv = document.getElementById("add-product-div");
+
 let addNewProducts = () => {
   goBtn.onclick = () => {
     const nameInput = document.getElementById("name-input");
@@ -100,6 +91,31 @@ let addNewProducts = () => {
     });
   };
 };
+
+// =================================
+//  GET PRODUCT COLLECTION FROM AJAX
+// =================================
+
+populateProductModal = (productId) => {
+  console.log(productId);
+  $.ajax({
+    url: `http://localhost:3400/product/${productId}`,
+    type: "GET",
+    success: (productData) => {
+      console.log("Product was found!");
+      console.log(productData);
+      renderProductModal(productData, productId);
+    },
+    error: () => {
+      console.log(error);
+    },
+  });
+};
+
+// =================================
+//     PRODUCT MODAL FUNCTIONS
+// =================================
+
 
 const openImage = document.getElementsByClassName("open-image");
 const closeModalBtn = document.getElementById("close-modal");
@@ -211,311 +227,16 @@ let renderProducts = (products) => {
   deleteBtn.onclick = () => {
     console.log(productId);
     populateDeleteModal(productId);
+    console.log("you've clicked delete button");
   };
 };
 
-// =================================
-//   RENDER USER ACCOUNT PRODUCTS
-// =================================
- 
-// This function renders our products
-let renderProductsAccount = (products) => {
-  let productId = products.id;
-  console.log("the render products function is working");
-  accountResult.innerHTML = "";
-  products.forEach((item) => {
-    //  RENDER COMMENTS
-    let renderComments = () => {
-      if (item.comments.length > 0) {
-        let allComments = "";
-        item.comments.forEach((comment) => {
-          allComments += `<li>${comment.text}</li>`;
-        });
-        return allComments;
-      } else {
-        return "<p>Be the first to place a comment!</p>";
-      }
-    };
-  
-    // how to render comments: ${renderComments()}
-  
-    if (item.createdby == sessionStorage.userID) {
-      accountResult.innerHTML += `
-  
-      <div class="product-container" id="${item._id}">
-      <div class="product-item">
-          <div class="product-buttons">
-          <i class="bi bi-trash trash-button" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
-          <i class="bi bi-pencil edit-button" data-bs-toggle="modal" data-bs-target="#editModal"></i>
-          </div>
-          <div class="product-image">
-              <img src="${item.img_url}" class="open-image" alt="${item.name
-        }">
-          </div>
-          <div class="product-description">
-          <h4>${item.name.toUpperCase()}</h4>
-          <p>BY ${item.productowner.toUpperCase()}</p>
-          <div id="favourite">
-          <h3>$${item.price}</h3>
-          </div>
-      </div>
-  </div>
-</div>
-   `;
-}
-});
-
-// running collect edit buttons function
-collectEditButtons();
-// running collect delete buttons function
-collectDeleteButtons();
-// running add comment buttons function
-collectCommentButtons();
-
-collectProductModals();
-
-let deleteBtn = document.getElementById("submitDelete");
-deleteBtn.onclick = () => {
-console.log(productId);
-populateDeleteModal(productId);
-};
-};
+// let deleteBtn = document.getElementById("submitDeleteBtn");
+// deleteBtn.onclick = () => {
+//   console.log("You've clicked delete button");
+// }
 
 
-let renderLandingpageGallery = (products) => {
-  // trending items
-  let startTrendingItems;
-  let endTrendingItems = 4;
-  let trendingItems = products
-    .slice(startTrendingItems, endTrendingItems)
-    .map((item, i) => {
-      return item;
-    });
-
-  trendingItems.forEach((item) => {
-    let renderComments = () => {
-      if (item.comments.length > 0) {
-        let allComments = "";
-        item.comments.forEach((comment) => {
-          allComments += `<li>${comment.text}</li>`;
-        });
-        return allComments;
-      } else {
-        return "<p>Be the first to place a comment!</p>";
-      }
-    };
-
-    if (item.createdby == sessionStorage.userID) {
-      gallery0.innerHTML += `
-    <div class="product-container" id="${item._id}">
-        <div class="product-item">
-            <div class="product-buttons">
-            <i class="bi bi-trash trash-button" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
-            <i class="bi bi-pencil edit-button" data-bs-toggle="modal" data-bs-target="#editModal"></i>
-            </div>
-            <div class="product-image">
-                <img src="${item.img_url}" class="open-image" alt="${
-        item.name
-      }">
-            </div>
-            <div class="product-description">
-                <h4>${item.name.toUpperCase()}</h4>
-                <p>BY ${item.productowner.toUpperCase()}</p> 
-                <div id="favourite">
-                <h3>$${item.price}</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-    `;
-    } else {
-      gallery0.innerHTML += `
-      <div class="product-container" id="${item._id}">
-      <div class="product-item">
-          <div class="product-buttons">
-          </div>
-          <div class="product-image">
-              <img src="${item.img_url}" class="open-image" alt="${item.name}">
-          </div>
-          <div class="product-description">
-              <h4>${item.name.toUpperCase()}</h4>
-              <p>BY ${item.productowner.toUpperCase()}</p> 
-              <div id="favourite">
-              <h3>$${item.price}</h3>
-              </div>
-          </div>
-      </div>
-  </div>
-    `;
-    }
-  });
-
-  // new items
-  let swiperItemsStart = 10;
-  let swiperItemsEnd = 15;
-  let swiperItems = products
-    .slice(swiperItemsStart, swiperItemsEnd)
-    .map((item, i) => {
-      return item;
-    });
-
-  swiperItems.forEach((item) => {
-    if (item.createdby == sessionStorage.userID) {
-      gallerySwiper.innerHTML += `
-      <div class="swiper-slide">
-      <div class="product-container" id="${item._id}">
-          <div class="product-item">
-              <div class="product-image">
-                  <img src="${item.img_url}" alt="${item.name}">
-              </div>
-          </div>
-      </div>
-  </div>
-    `;
-    } else {
-      gallerySwiper.innerHTML += `
-      <div class="swiper-slide">
-      <div class="product-container" id="${item._id}">
-          <div class="product-item">
-              <div class="product-image">
-                  <img src="${item.img_url}" alt="${item.name}">
-              </div>
-          </div>
-      </div>
-  </div>
-    `;
-    }
-  });
-  // new items
-  let startNewItems = 5;
-  let endNewItems = 6;
-  let newItems = products.slice(startNewItems, endNewItems).map((item, i) => {
-    return item;
-  });
-
-  newItems.forEach((item) => {
-    let renderComments = () => {
-      if (item.comments.length > 0) {
-        let allComments = "";
-        item.comments.forEach((comment) => {
-          allComments += `<li>${comment.text}</li>`;
-        });
-        return allComments;
-      } else {
-        return "<p>Be the first to place a comment!</p>";
-      }
-    };
-
-    if (item.createdby == sessionStorage.userID) {
-      gallery1.innerHTML += `
-    <div class="product-container" id="${item._id}">
-      <div class="product-item">
-          
-          <div class="product-image">
-              <img src="${item.img_url}" alt="${item.name}">
-          </div>
-          <div class="product-logo">
-            <img src="../frontend/media/logo_papori_white.svg" alt="logo_papori_white">
-          </div>
-      </div>
-  </div>
-    `;
-    } else {
-      gallery1.innerHTML += `
-    <div class="product-container" id="${item._id}">
-    <div class="product-item">  
-        <div class="product-image">
-            <img src="${item.img_url}" alt="${item.name}">
-        </div>
-    </div>
-    <div class="product-logo">
-      <img src="../frontend/media/logo_papori_white.svg" alt="logo_papori_white">
-    </div>
-</div>
-    `;
-    }
-  });
-
-  // top sellers
-  let startTopSellers = 8;
-  let endTopSellers = 11;
-  let topSellerItems = products
-    .slice(startTopSellers, endTopSellers)
-    .map((item, i) => {
-      return item;
-    });
-
-  topSellerItems.forEach((item) => {
-    let renderComments = () => {
-      if (item.comments.length > 0) {
-        let allComments = "";
-        item.comments.forEach((comment) => {
-          allComments += `<li>${comment.text}</li>`;
-        });
-        return allComments;
-      } else {
-        return "<p>Be the first to place a comment!</p>";
-      }
-    };
-
-    if (item.createdby == sessionStorage.userID) {
-      gallery2.innerHTML += `
-    <div class="product-container" id="${item._id}">
-      <div class="product-item">
-          <div class="product-buttons">
-          <i class="bi bi-trash trash-button" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
-          <i class="bi bi-pencil edit-button" data-bs-toggle="modal" data-bs-target="#editModal"></i>
-          </div>
-          <div class="product-image">
-              <img src="${item.img_url}" alt="${item.name}">
-          </div>
-          <div class="product-description">
-              <h4>${item.name.toUpperCase()}</h4>
-              <p>BY ${item.productowner.toUpperCase()}</p> 
-              <div id="favourite">
-              <h3>$${item.price}</h3>
-              </div>
-          </div>
-      </div>
-  </div>
-    `;
-    } else {
-      gallery2.innerHTML += `
-    <div class="product-container" id="${item._id}">
-    <div class="product-item">
-        <div class="product-buttons">
-        </div>
-        <div class="product-image">
-            <img src="${item.img_url}" alt="${item.name}">
-        </div>
-        <div class="product-description">
-            <h4>${item.name.toUpperCase()}</h4>
-            <p>BY ${item.productowner.toUpperCase()}</p> 
-            <div id="favourite">
-            <h3>$${item.price}</h3>
-            </div>
-        </div>
-    </div>
-</div>
-    `;
-    }
-  });
-
-  // running collect edit buttons function
-  collectEditButtons();
-  // running collect delete buttons function
-  collectDeleteButtons();
-  // running add comment buttons function
-  collectCommentButtons();
-
-  collectProductModals();
-
-  let deleteBtn = document.getElementById("submitDelete");
-  deleteBtn.onclick = () => {
-    console.log(productId);
-    populateDeleteModal(productId);
-  };
-};
 
 // =================================
 //      ADD COMMENT FUNCTION
@@ -602,7 +323,7 @@ let renderDeleteModal = (productData) => {
   let deleteBtn = document.getElementById("submitDelete");
   deleteBtn.onclick = () => {
     deleteProduct(productId);
-    console.log(productId);
+    console.log("you've clicked delete button");
   };
 };
 
@@ -624,6 +345,10 @@ let collectEditButtons = () => {
     };
   }
 };
+
+// =================================
+//       POPULATE EDIT MODAL
+// =================================
 
 fillEditInputs = (product, id) => {
   let productName = document.getElementById("productName");
@@ -705,58 +430,6 @@ let deleteProduct = (productId) => {
   });
 };
 
-fillEditUserInputs = (user, id) => {
-  let username = document.getElementById("username-input");
-  let password = document.getElementById("edit-password-input");
-  // let description = document.getElementById("profile-description-input");
-  let imageUrl = document.getElementById("profilepic-input");
-
-  username.value = user.username;
-  password.value = user.password;
-  // description.value = user.userdescription;
-  imageUrl.value = user.profile_img_url;
-
-  //=================================
-  //      EDIT CLICK LISTENER
-  //=================================
-  $("#edit-button2").click(function () {
-    event.preventDefault();
-    let userId = sessionStorage.userID;
-    let username = document.getElementById("username-input").value;
-    let password = document.getElementById("edit-password-input").value;
-    // let description = document.getElementById(
-    //   "profile-description-input"
-    // ).value;
-    let imageUrl = document.getElementById("profilepic-input").value;
-
-    console.log(username, password, imageUrl);
-
-    $.ajax({
-      url: `http://localhost:3400/updateUser/${userId}`,
-      type: "PATCH",
-      data: {
-        username: username,
-        password: password,
-        // userdescription: description,
-        profile_img_url: imageUrl,
-      },
-      success: (data) => {
-        console.log(data);
-        console.log("Success - user was updated");
-        newUsername = username;
-        // newDescription = description;
-        newImageUrl = imageUrl;
-        sessionStorage.setItem("userName", JSON.stringify(newUsername));
-        sessionStorage.setItem("profileImg", newImageUrl);
-      },
-      error: () => {
-        console.log("Error not updated");
-      },
-    });
-  });
-};
-
-populateAccountEditPage();
 
 // this function will handle all our deletes
 let collectDeleteButtons = () => {
@@ -803,7 +476,6 @@ const postProductBtnDiv = document.getElementById("add-product-button");
 // ==============================================
 // this function checks if the users logged in
 // if they are, show the username and their profile image
-
 let checkLogin = () => {
   const userDetails = document.getElementById("user-details");
   let navContent;
@@ -847,42 +519,11 @@ let checkLogin = () => {
   userDetails.innerHTML = navContent;
 };
 
-// =======================================
-// ADD PROFILE PICTURES FOR ACCOUNT PAGES
-// =======================================
-let displayProfilePictures = () => {
-  let editProfileImage = document.getElementById("edit-profile-image");
-  let accountProfileHeader = document.getElementById("account-profile-header");
-  // let userDescription = document.getElementById("profile-description-input").value;
-  if (sessionStorage.userID) {
-    addNewProducts();
-    editProfileImage.innerHTML = `
-      <img class="profile-image" src="${sessionStorage.profileImg}">
-      `;
-    accountProfileHeader.innerHTML = `
-      <img class="profile-image" src="${sessionStorage.profileImg}">
-      <p id="username-account">${sessionStorage.userName.toUpperCase()}</p>
-      `;
-  }
-};
-
-displayProfilePictures();
-
 checkLogin();
 
-const signoutBtn = document.getElementById("sign-out-button");
-
-let logOut = () => {
-  console.log("log out");
-  sessionStorage.clear();
-  window.location.reload();
-};
-
-if (sessionStorage.userID) {
-  signoutBtn.onclick = () => {
-    logOut();
-  };
-}
+// =================================
+//        ACCOUNT FUNCTIONS
+// =================================
 
 // const accountBtn = document.getElementById('nav-btn-acc');
 const accountImg = document.getElementById("nav-img-acc");
@@ -944,32 +585,4 @@ let renderProductModal = (projectData) => {
   // `;
 };
 
-// Getting data from MongoDB to put in our project modal
 
-let populateProductModal = (projectId) => {
-  $.ajax({
-    url: `http://localhost:3400/product/${projectId}`,
-    type: "GET",
-    success: (projectData) => {
-      // console.log('student was found');
-      console.log(projectData);
-      // thias is where renderprojectmodal is getting its data from
-      renderProductModal(projectData);
-    },
-    error: (error) => {
-      console.log(error);
-    },
-  });
-};
-
-
-
-let footerTopInfo1 = document.getElementsByClassName(`footer-top-info1`);
-
-for (let i = 0; i < footerTopInfo1.length; i++) {
-  const element = footerTopInfo1[i];
-  element.addEventListener("click", function () {
-    this.classList.toggle("active");
-    console.log("clicked");
-  });
-}

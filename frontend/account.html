@@ -75,21 +75,17 @@
 
     <div class="nav-padding"></div>
 
-    <!-- Add Product Form  -->
-    <div id="add-product-div"></div>
-    <div id="add-product-button">
-        <button id="go-button">Post New Product</button>
-    </div>
-
     <!-- edit account header here  -->
     <div class="account-header">
         <h1 class="account-title">Account</h1>
-        <button class="back-button-account1">ADD LISTING</button>
+        <button class="back-button-account1" data-bs-toggle="modal" data-bs-target="#addProductModal">ADD
+            LISTING</button>
         <a href="editaccount.html"> <button class="back-button-account2">EDIT ACCOUNT</button> </a>
     </div>
 
     <!-- profile pic and username  -->
     <div id="account-profile-header"></div>
+    <div id="account-bio"></div>
     <div id="edit-profile-image" style="display: none;"></div>
 
     <div id="listings-favourites-container">
@@ -184,7 +180,7 @@
 
                     <button type="button" class="btn btn-secondary delete-modal-cancel-button"
                         data-bs-dismiss="modal">CANCEL</button>
-                    <button id="submitDelete" name="submitDeleteButton" type="submit"
+                    <button id="submitDeleteBtn" name="submitDeleteButton" type="submit"
                         class="btn btn-primary delete-button" data-bs-dismiss="modal">CONFIRM</button>
 
                 </div>
@@ -236,129 +232,146 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!-- end of product modal -->
 
-        <!-- end of product modal -->
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Listing</h5></strong>
+                    <div id="image-preview"></div>
+                    <div id="projectForm">
 
-        <!-- Edit Modal -->
-        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <label for="productName">TITLE</label>
+                        <br>
+                        <input class="edit-modal-input" type="text" id="productName" name="productName">
+                        <br></br>
+
+                        <label for="productPrice">PRICE</label>
+                        <br>
+                        <input class="edit-modal-input" type="text" id="productPrice" name="productPrice">
+                        <br></br>
+                        <label for="productDescription">DESCRIPTION</label>
+                        <br>
+                        <input class="edit-modal-input" type="text" id="productDescription" name="productDescription">
+                        <br></br>
+
+                        <label for="imgUrl">PRODUCT IMAGE</label>
+                        <br>
+                        <input class="edit-modal-input" type="text" id="imgUrl" name="imgUrl">
+                        <br></br>
+
                     </div>
-                    <div class="modal-body">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit Listing</h5></strong>
-                        <div id="image-preview"></div>
-                        <div id="projectForm">
-
-                            <label for="productName">TITLE</label>
-                            <br>
-                            <input class="edit-modal-input" type="text" id="productName" name="productName">
-                            <br></br>
-
-                            <label for="productPrice">PRICE</label>
-                            <br>
-                            <input class="edit-modal-input" type="text" id="productPrice" name="productPrice">
-                            <br></br>
-                            <label for="productDescription">DESCRIPTION</label>
-                            <br>
-                            <input class="edit-modal-input" type="text" id="productDescription"
-                                name="productDescription">
-                            <br></br>
-
-                            <label for="imgUrl">PRODUCT IMAGE</label>
-                            <br>
-                            <input class="edit-modal-input" type="text" id="imgUrl" name="imgUrl">
-                            <br></br>
-
+                    <div class="edit-modal-buttons">
+                        <button type="button" class="btn btn-secondary edit-modal-button1" data-bs-dismiss="modal">CANCEL</button>
+                        <button id="updateProduct" name="projectButton" type="submit" class="btn btn-primary edit-modal-button2"
+                          data-bs-dismiss="modal">CONFIRM</button>
                         </div>
-                        <button type="button" class="btn btn-secondary edit-modal-button1"
-                            data-bs-dismiss="modal">CANCEL</button>
-                        <button id="updateProduct" name="projectButton" type="submit"
-                            class="btn btn-primary edit-modal-button2" data-bs-dismiss="modal">CONFIRM</button>
+                </div>
 
+            </div>
+        </div>
+    </div>
+
+    <!-- End of edit Modal  -->
+
+ <!-- Add Product Modal -->
+ <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="add-modal-body">
+                <h5 class="add-modal-title" id="exampleModalLabel">Edit Listing</h5>
+                <div id="projectForm">
+
+                    <label for="name-input">Product Name: </label>
+                    <input class="add-modal-input" id="name-input" name="name-input" type="text">
+                    <label for="price-input">Product Price: </label>
+                    <input class="add-modal-input" id="price-input" name="price-input" type="text">
+                    <label for="description-input">Product Description: </label>
+                    <input class="add-modal-input" id="description-input" name="description-input" type="text">
+                    <label for="image-url-input">Product Image URL:</label>
+                    <input class="add-modal-input" id="image-url-input" name="image-url-input" type="text">
+
+                </div>
+                <div class="add-product-buttons">
+                    <button type="button" class="btn btn-secondary add-modal-button1"
+                        data-bs-dismiss="modal">CANCEL</button>
+                    <button id="addProduct" name="projectButton" type="submit"
+                        class="btn btn-primary add-modal-button2" data-bs-dismiss="modal">POST</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End of  Add Product Modal  -->
+
+
+    <!-- Post Comment Modal -->
+    <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="commentModalLabel">Post a comment:</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="projectForm">
+                        <label for="productComment">Enter your comment:</label>
+                        <textarea class="form-control" id="productComment" rows="4"></textarea>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="submitComment" name="submitCommentButton" type="submit" class="btn btn-primary"
+                        data-bs-dismiss="modal">Submit Comment</button>
 
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- End of edit Modal  -->
+    <!-- End of Post Comment Modal  -->
 
-        <!-- Post Comment Modal -->
-        <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="commentModalLabel">Post a comment:</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div id="projectForm">
-                            <label for="productComment">Enter your comment:</label>
-                            <textarea class="form-control" id="productComment" rows="4"></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button id="submitComment" name="submitCommentButton" type="submit" class="btn btn-primary"
-                            data-bs-dismiss="modal">Submit Comment</button>
+    <!-- Confirm Delete Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="delete-modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">DELETE LISTING</h5>
+                </div>
+                <div class="delete-modal-body">
+                    <p class="confirm-delete-text">Are you sure you want to delete <br> this listing?</p>
+                    <button type="button" class="btn btn-secondary delete-modal-cancel-button"
+                        data-bs-dismiss="modal">CANCEL</button>
+                    <button id="submitDelete" name="submitDeleteButton" type="submit"
+                        class="btn btn-primary delete-button" data-bs-dismiss="modal">CONFIRM</button>
 
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- End of Post Comment Modal  -->
+    <!-- End of Confirm Delete Modal  -->
 
-        <!-- Confirm Delete Modal -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="delete-modal-header">
-                        <h5 class="modal-title" id="deleteModalLabel">DELETE LISTING</h5>
-                    </div>
-                    <div class="delete-modal-body">
-                        <p class="confirm-delete-text">Are you sure you want to delete <br> this listing?</p>
-                        <button type="button" class="btn btn-secondary delete-modal-cancel-button"
-                            data-bs-dismiss="modal">CANCEL</button>
-                        <button id="submitDelete" name="submitDeleteButton" type="submit"
-                            class="btn btn-primary delete-button" data-bs-dismiss="modal">CONFIRM</button>
+    <!-- jquery -->
+    <script src="https://kit.fontawesome.com/ab86417da5.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- boos=tstraps  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+        </script>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- End of Confirm Delete Modal  -->
-
-
-        <!-- result div not needed  -->
-        <div id="result" style="display:none"></div>
-        <div id="account-image" style="display:none"></div>
-
-        <!-- dont need filter  -->
-        <div id="filter" style="display: none;"></div>
-        <!-- dont need filter  -->
-
-        <div id="gallery0" style="display: none;"></div>
-        <div id="gallery1" style="display: none;"></div>
-        <div id="gallery2" style="display: none;"></div>
-        <div id="gallery-swiper" style="display: none;"></div>
-        <div id="username-input" style="display: none;"></div>
-        <div id="edit-password-input" style="display: none;"></div>
-        <div id="profile-description-input" style="display: none;"></div>
-        <div id="profilepic-input" style="display: none;"></div>
-        <!-- jquery -->
-        <script src="https://kit.fontawesome.com/ab86417da5.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <!-- boos=tstraps  -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
-            </script>
-
-        <!-- <script src="js/account.js"></script> -->
-        <script src="js/script.js"></script>
+    <!-- <script src="js/account.js"></script> -->
+    <script src="js/account.js"></script>
 </body>
 
 </html>

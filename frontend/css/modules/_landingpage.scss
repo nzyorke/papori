@@ -5,7 +5,8 @@
     background-color: $tan;
     @include flex-column;
     align-items: center;
-    padding-top: 300px;
+    justify-content: center;
+    // padding-top: 200px;
 
     .star1,
     .star2,
@@ -299,6 +300,826 @@
                 text-transform: capitalize;
                 letter-spacing: 1px;
                 padding: 10px 30px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 414px) {}
+
+@media only screen and (min-width: 768px) {
+    .landingpage {
+        // padding-top: 280px;
+
+        .star1,
+        .star2,
+        .star3 {
+            position: absolute;
+
+            img {
+                width: 60px;
+                // opacity: 0;
+            }
+        }
+
+        .star1 {
+            top: 12%;
+            left: 40%;
+        }
+
+        .star2 {
+            top: 68%;
+            left: 8%;
+        }
+
+        .star3 {
+            top: 80%;
+            left: 78%;
+        }
+
+        .landingpage_title {
+
+            h1 {
+                font-size: 260px;
+                line-height: 200px;
+            }
+
+            p {
+                font-size: 20px;
+            }
+        }
+
+        .landingpage_logo {
+            img {
+                width: 60px;
+            }
+
+            p {
+                font-size: 12px;
+
+            }
+        }
+    }
+
+    .gallery-cont {
+        @include flex-column;
+
+        .gallery {
+            @include flex-column;
+            padding: 20px;
+
+            h6 {
+                font-family: $sen;
+                font-size: 25px;
+                font-weight: 600;
+                margin: 10px 0px;
+                text-transform: capitalize;
+                letter-spacing: 1px;
+                line-height: 50px;
+                border-bottom: 2px solid $blue;
+            }
+
+            #gallery0 {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(1, 1fr);
+                gap: 5px;
+
+                .product-container {
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                    grid-row: span 1;
+
+                    .product-item {
+                        width: 100%;
+                        height: 400px;
+                        position: relative;
+                        padding-bottom: 50px;
+                        background: $white;
+
+                        .product-image {
+                            width: 100%;
+                            height: 100%;
+                            overflow: hidden;
+                        }
+                    }
+
+                    .product-description {
+                        height: 50px;
+                        width: 100%;
+                        display: flex;
+                        bottom: 0;
+                        align-items: flex-start;
+                        justify-content: center;
+                        padding: 0 42px 0 6px;
+                        position: absolute;
+                        flex-direction: column;
+
+                        h4 {
+                            font-size: calc(.8em + .3vw);
+                            font-weight: 200;
+                            color: $blue;
+                        }
+
+                        p {
+                            font-size: .7em;
+                            font-weight: 100;
+                            color: $green;
+                        }
+                    }
+
+                    #favourite {
+                        position: absolute;
+                        top: 11px;
+                        bottom: 11px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        right: 6px;
+                        justify-content: center;
+
+                        h3 {
+                            font-family: "Plus Jakarta Sans", sans-serif;
+                            font-size: 1em;
+                            font-weight: 300;
+                            color: $blue;
+                        }
+                    }
+                }
+            }
+
+            #gallery1 {
+                @include flex-column;
+                gap: 50px;
+
+                .product-container {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                    grid-row: span 1;
+
+
+                    .product-item {
+                        width: 100%;
+                        height: 400px;
+                        position: relative;
+                        padding-bottom: 0;
+                        background: $white;
+
+                        .product-image {
+                            width: 100%;
+                            height: 100%;
+                            overflow: hidden;
+                        }
+                    }
+
+                    .product-logo {
+                        position: absolute;
+                        top: 120px;
+                        left: 41%;
+                        z-index: 98;
+
+                        img {
+                            width: 150px;
+                            height: 150px;
+                        }
+                    }
+
+                }
+            }
+
+            #gallery2 {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                gap: 5px;
+
+                .product-container {
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                    grid-row: span 1;
+
+                    .product-item {
+                        width: 100%;
+                        height: 400px;
+                        position: relative;
+                        padding-bottom: 50px;
+                        background: $white;
+
+                        .product-image {
+                            width: 100%;
+                            height: 100%;
+                            overflow: hidden;
+                        }
+                    }
+
+                    .product-description {
+                        height: 50px;
+                        width: 100%;
+                        display: flex;
+                        bottom: 0;
+                        align-items: flex-start;
+                        justify-content: center;
+                        padding: 0 42px 0 6px;
+                        position: absolute;
+                        flex-direction: column;
+
+                        h4 {
+                            font-size: calc(.8em + .3vw);
+                            font-weight: 200;
+                            color: $blue;
+                        }
+
+                        p {
+                            font-size: .7em;
+                            font-weight: 100;
+                            color: $green;
+                        }
+                    }
+
+                    #favourite {
+                        position: absolute;
+                        top: 11px;
+                        bottom: 11px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        right: 6px;
+                        justify-content: center;
+
+                        h3 {
+                            font-family: "Plus Jakarta Sans", sans-serif;
+                            font-size: 1em;
+                            font-weight: 300;
+                            color: $blue;
+                        }
+                    }
+                }
+
+                .product-container:nth-child(1) {
+                    grid-column-start: 1;
+                    grid-column-end: 3;
+
+                }
+            }
+
+            .gallery-button {
+                padding: 10px 0;
+                @include flex-row;
+                align-items: center;
+                justify-content: flex-end;
+
+                button {
+                    border: none;
+                    background-color: $blue;
+                    color: $white;
+                    font-size: 15px;
+                    font-family: $sen;
+                    font-weight: 500;
+                    text-transform: capitalize;
+                    letter-spacing: 1px;
+                    padding: 10px 30px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .landingpage {
+        // padding-top: 200px;
+
+        .star1,
+        .star2,
+        .star3 {
+            position: absolute;
+
+            img {
+                width: 60px;
+            }
+        }
+
+        .star1 {
+            top: 12%;
+            left: 40%;
+        }
+
+        .star2 {
+            top: 68%;
+            left: 8%;
+        }
+
+        .star3 {
+            top: 80%;
+            left: 78%;
+        }
+
+        .landingpage_title {
+
+            h1 {
+                font-size: 340px;
+                line-height: 260px;
+            }
+
+            p {
+                font-size: 20px;
+            }
+        }
+
+        .landingpage_logo {
+
+            img {
+                width: 60px;
+
+            }
+
+        }
+    }
+
+    .gallery-cont {
+
+        .gallery {
+
+            h6 {
+                font-size: 25px;
+            }
+
+            #gallery0 {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(1, 1fr);
+                gap: 5px;
+
+                .product-container {
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                    grid-row: span 1;
+
+                    .product-item {
+                        width: 100%;
+                        height: 400px;
+                        position: relative;
+                        padding-bottom: 50px;
+                        background: $white;
+
+                        .product-image {
+                            width: 100%;
+                            height: 100%;
+                            overflow: hidden;
+                        }
+                    }
+
+                    .product-description {
+                        height: 50px;
+                        width: 100%;
+                        display: flex;
+                        bottom: 0;
+                        align-items: flex-start;
+                        justify-content: center;
+                        padding: 0 42px 0 6px;
+                        position: absolute;
+                        flex-direction: column;
+
+                        h4 {
+                            font-size: calc(.8em + .3vw);
+                            font-weight: 200;
+                            color: $blue;
+                        }
+
+                        p {
+                            font-size: .7em;
+                            font-weight: 100;
+                            color: $green;
+                        }
+                    }
+
+                    #favourite {
+                        position: absolute;
+                        top: 11px;
+                        bottom: 11px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        right: 6px;
+                        justify-content: center;
+
+                        h3 {
+                            font-family: "Plus Jakarta Sans", sans-serif;
+                            font-size: 1em;
+                            font-weight: 300;
+                            color: $blue;
+                        }
+                    }
+                }
+            }
+
+            #gallery1 {
+                @include flex-column;
+                gap: 50px;
+
+                .product-container {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                    grid-row: span 1;
+
+
+                    .product-item {
+                        width: 100%;
+                        height: 400px;
+                        position: relative;
+                        padding-bottom: 0;
+                        background: $white;
+
+                        .product-image {
+                            width: 100%;
+                            height: 100%;
+                            overflow: hidden;
+                        }
+                    }
+
+                    .product-logo {
+                        position: absolute;
+                        top: 120px;
+                        left: 48%;
+                        z-index: 98;
+
+                        img {
+                            width: 150px;
+                            height: 150px;
+                        }
+                    }
+
+                }
+            }
+
+            #gallery2 {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(1, 1fr);
+                gap: 5px;
+
+                .product-container {
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                    grid-row: span 1;
+
+                    .product-item {
+                        width: 100%;
+                        height: 400px;
+                        position: relative;
+                        padding-bottom: 50px;
+                        background: $white;
+
+                        .product-image {
+                            width: 100%;
+                            height: 100%;
+                            overflow: hidden;
+                        }
+                    }
+
+                    .product-description {
+                        height: 50px;
+                        width: 100%;
+                        display: flex;
+                        bottom: 0;
+                        align-items: flex-start;
+                        justify-content: center;
+                        padding: 0 42px 0 6px;
+                        position: absolute;
+                        flex-direction: column;
+
+                        h4 {
+                            font-size: calc(.8em + .3vw);
+                            font-weight: 200;
+                            color: $blue;
+                        }
+
+                        p {
+                            font-size: .7em;
+                            font-weight: 100;
+                            color: $green;
+                        }
+                    }
+
+                    #favourite {
+                        position: absolute;
+                        top: 11px;
+                        bottom: 11px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        right: 6px;
+                        justify-content: center;
+
+                        h3 {
+                            font-family: "Plus Jakarta Sans", sans-serif;
+                            font-size: 1em;
+                            font-weight: 300;
+                            color: $blue;
+                        }
+                    }
+                }
+
+                .product-container:nth-child(1) {
+                    grid-column-start: 1;
+                    grid-column-end: 2;
+
+                }
+            }
+
+            .gallery-button {
+                padding: 10px 0;
+                @include flex-row;
+                align-items: center;
+                justify-content: flex-end;
+
+                button {
+                    border: none;
+                    background-color: $blue;
+                    color: $white;
+                    font-size: 15px;
+                    font-family: $sen;
+                    font-weight: 500;
+                    text-transform: capitalize;
+                    letter-spacing: 1px;
+                    padding: 10px 30px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .landingpage {
+        // padding-top: 160px;
+
+        .star1,
+        .star2,
+        .star3 {
+            position: absolute;
+
+            img {
+                width: 60px;
+            }
+        }
+
+        .star1 {
+            top: 12%;
+            left: 40%;
+        }
+
+        .star2 {
+            top: 68%;
+            left: 8%;
+        }
+
+        .star3 {
+            top: 80%;
+            left: 78%;
+        }
+
+        .landingpage_title {
+
+            h1 {
+                font-size: 380px;
+                line-height: 280px;
+            }
+
+            p {
+                font-size: 25px;
+                letter-spacing: 2px;
+            }
+        }
+
+        .landingpage_logo {
+            bottom: 40px;
+
+            img {
+                width: 60px;
+            }
+
+        }
+    }
+
+    .gallery-cont {
+
+        .gallery {
+
+            h6 {
+                font-size: 25px;
+            }
+
+            #gallery0 {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(1, 1fr);
+                gap: 5px;
+
+                .product-container {
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                    grid-row: span 1;
+
+                    .product-item {
+                        width: 100%;
+                        height: 400px;
+                        position: relative;
+                        padding-bottom: 50px;
+                        background: $white;
+
+                        .product-image {
+                            width: 100%;
+                            height: 100%;
+                            overflow: hidden;
+                        }
+                    }
+
+                    .product-description {
+                        height: 50px;
+                        width: 100%;
+                        display: flex;
+                        bottom: 0;
+                        align-items: flex-start;
+                        justify-content: center;
+                        padding: 0 42px 0 6px;
+                        position: absolute;
+                        flex-direction: column;
+
+                        h4 {
+                            font-size: calc(.8em + .3vw);
+                            font-weight: 200;
+                            color: $blue;
+                        }
+
+                        p {
+                            font-size: .7em;
+                            font-weight: 100;
+                            color: $green;
+                        }
+                    }
+
+                    #favourite {
+                        position: absolute;
+                        top: 11px;
+                        bottom: 11px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        right: 6px;
+                        justify-content: center;
+
+                        h3 {
+                            font-family: "Plus Jakarta Sans", sans-serif;
+                            font-size: 1em;
+                            font-weight: 300;
+                            color: $blue;
+                        }
+                    }
+                }
+            }
+
+            #gallery1 {
+                @include flex-column;
+                gap: 50px;
+
+                .product-container {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                    grid-row: span 1;
+
+
+                    .product-item {
+                        width: 100%;
+                        height: 400px;
+                        position: relative;
+                        padding-bottom: 0;
+                        background: $white;
+
+                        .product-image {
+                            width: 100%;
+                            height: 100%;
+                            overflow: hidden;
+                        }
+                    }
+
+                    .product-logo {
+                        position: absolute;
+                        top: 120px;
+                        left: 48%;
+                        z-index: 98;
+
+                        img {
+                            width: 150px;
+                            height: 150px;
+                        }
+                    }
+
+                }
+            }
+
+            #gallery2 {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(1, 1fr);
+                gap: 5px;
+
+                .product-container {
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                    grid-row: span 1;
+
+                    .product-item {
+                        width: 100%;
+                        height: 400px;
+                        position: relative;
+                        padding-bottom: 50px;
+                        background: $white;
+
+                        .product-image {
+                            width: 100%;
+                            height: 100%;
+                            overflow: hidden;
+                        }
+                    }
+
+                    .product-description {
+                        height: 50px;
+                        width: 100%;
+                        display: flex;
+                        bottom: 0;
+                        align-items: flex-start;
+                        justify-content: center;
+                        padding: 0 42px 0 6px;
+                        position: absolute;
+                        flex-direction: column;
+
+                        h4 {
+                            font-size: calc(.8em + .3vw);
+                            font-weight: 200;
+                            color: $blue;
+                        }
+
+                        p {
+                            font-size: .7em;
+                            font-weight: 100;
+                            color: $green;
+                        }
+                    }
+
+                    #favourite {
+                        position: absolute;
+                        top: 11px;
+                        bottom: 11px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        right: 6px;
+                        justify-content: center;
+
+                        h3 {
+                            font-family: "Plus Jakarta Sans", sans-serif;
+                            font-size: 1em;
+                            font-weight: 300;
+                            color: $blue;
+                        }
+                    }
+                }
+
+                .product-container:nth-child(1) {
+                    grid-column-start: 1;
+                    grid-column-end: 2;
+
+                }
+            }
+
+            .gallery-button {
+                padding: 10px 0;
+                @include flex-row;
+                align-items: center;
+                justify-content: flex-end;
+
+                button {
+                    border: none;
+                    background-color: $blue;
+                    color: $white;
+                    font-size: 15px;
+                    font-family: $sen;
+                    font-weight: 500;
+                    text-transform: capitalize;
+                    letter-spacing: 1px;
+                    padding: 10px 30px;
+                }
             }
         }
     }

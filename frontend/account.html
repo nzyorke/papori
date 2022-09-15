@@ -76,22 +76,26 @@
     <div class="nav-padding"></div>
 
     <!-- Add Product Form  -->
-        <div id="account-profile-header"></div>
-        <div id="edit-profile-image" style="display: none;"></div>
-
-        <div id="add-product-div"></div>
-    
-
+    <div id="add-product-div"></div>
     <div id="add-product-button">
         <button id="go-button">Post New Product</button>
     </div>
-    <!-- edit account details here  -->
-    <div class="edit-account-header">
+
+    <!-- edit account header here  -->
+    <div class="account-header">
         <h1 class="account-title">Account</h1>
         <button class="back-button-account1">ADD LISTING</button>
         <a href="editaccount.html"> <button class="back-button-account2">EDIT ACCOUNT</button> </a>
     </div>
 
+    <!-- profile pic and username  -->
+    <div id="account-profile-header"></div>
+    <div id="edit-profile-image" style="display: none;"></div>
+
+    <div id="listings-favourites-container">
+        <p id="listings-title">Listings</p>
+        <p id="favourites-title">Favourites</p>
+    </div>
 
 
     <!-- display user account listings here  -->
@@ -100,7 +104,7 @@
     <footer>
         <div class="footer-top">
 
-            <div class="footer-top-info1-account wrapper1" id="footer-top-info1">
+            <div class="footer-top-info1 wrapper1" id="footer-top-info1">
                 <div class="title">
                     <p>Customer Care</p>
                 </div>
@@ -155,8 +159,6 @@
                 <a href="#">Built by BMJ</a>
             </div>
         </div>
-
-
     </footer>
 
     <!-- Change Password Modal -->
@@ -169,15 +171,17 @@
                 </div>
                 <div class="update-password-modal-body">
 
-                    <label class="edit-password-label" for="edit-password-input">Old password: </label>
+                    <label class="edit-password-label-old" for="edit-password-input-old">Old password: </label>
                     <br>
-                    <input class="edit-password-input" id="edit-password-input" name="edit-password-input"
+                    <input class="edit-password-input-old" id="edit-password-input-old" name="edit-password-input-old"
                         type="password"> <br>
 
                     <label class="edit-password-label" for="edit-password-input">New password: </label>
                     <br>
                     <input class="edit-password-input" id="edit-password-input" name="edit-password-input"
                         type="password"> <br>
+
+
                     <button type="button" class="btn btn-secondary delete-modal-cancel-button"
                         data-bs-dismiss="modal">CANCEL</button>
                     <button id="submitDelete" name="submitDeleteButton" type="submit"
@@ -190,145 +194,171 @@
 
     <!-- End of Change Password Modal  -->
 
-    <!-- product Modal CHECK THIS !!!!!!!! -->
+    <!-- product Modal -->
     <div id="productModal" class="productModal">
         <div class="product-modal-container">
             <div class="product-modal-grid">
                 <i id="close-modal" class="fa-solid fa-x"></i>
-                <div id="product-owner" class="product-owner">
-                </div>
-                <div id="product-name" class="product-name"></div>
-                <div id="product-description" class="product-description">
-                    <p>The application should have functionality to show/hide UI components based on user interaction.
-                        For
-                        example, it may have multiple screens or use a modal dialog.</p>
-                </div>
                 <div id="product-image" class="product-image">
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- end of product modal -->
-
-    <!-- Edit Modal -->
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Listing</h5></strong>
-                    <div id="image-preview"></div>
-                    <div id="projectForm">
-
-                        <label for="productName">TITLE</label>
-                        <br>
-                        <input class="edit-modal-input" type="text" id="productName" name="productName">
-                        <br></br>
-
-                        <label for="productPrice">PRICE</label>
-                        <br>
-                        <input class="edit-modal-input" type="text" id="productPrice" name="productPrice">
-                        <br></br>
-                        <label for="productDescription">DESCRIPTION</label>
-                        <br>
-                        <input class="edit-modal-input" type="text" id="productDescription" name="productDescription">
-                        <br></br>
-
-                        <label for="imgUrl">PRODUCT IMAGE</label>
-                        <br>
-                        <input class="edit-modal-input" type="text" id="imgUrl" name="imgUrl">
-                        <br></br>
-
-                    </div>
-                    <button type="button" class="btn btn-secondary edit-modal-button1"
-                        data-bs-dismiss="modal">CANCEL</button>
-                    <button id="updateProduct" name="projectButton" type="submit"
-                        class="btn btn-primary edit-modal-button2" data-bs-dismiss="modal">CONFIRM</button>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- End of edit Modal  -->
-
-    <!-- Post Comment Modal -->
-    <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="commentModalLabel">Post a comment:</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div id="projectForm">
-                        <label for="productComment">Enter your comment:</label>
-                        <textarea class="form-control" id="productComment" rows="4"></textarea>
+                <div class="product-title">
+                    <div id="product-name" class="product-name"></div>
+                    <div id="product-owner" class="product-owner">
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button id="submitComment" name="submitCommentButton" type="submit" class="btn btn-primary"
-                        data-bs-dismiss="modal">Submit Comment</button>
+                <div id="modal-description" style="display: none;" class="modal-description">
+                </div>
+                <div class="modal-message-container">
+                    <div class="name-underline"></div>
+                    <div class="modal-message">
+                        <h3>INQUIRE</h3>
+                        <div class="modal-message-inputs">
+                            <input placeholder="Write title here . . ." type="text">
+                            <input class="modal-message-large" placeholder="Write message here . . ." type="text">
+                        </div>
+                        <div class="modal-message-buttons">
+                            <button>
+                                <p>BACK</p>
+                            </button><button>
+                                <p>SEND</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-comments" id="product-comments">
+                    <h3>COMMENTS</h3>
+                    <div class="comment-input">
+                        <input type="text"> <button>
+                            <p>POST
+                            <p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- end of product modal -->
+
+        <!-- Edit Modal -->
+        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Listing</h5></strong>
+                        <div id="image-preview"></div>
+                        <div id="projectForm">
+
+                            <label for="productName">TITLE</label>
+                            <br>
+                            <input class="edit-modal-input" type="text" id="productName" name="productName">
+                            <br></br>
+
+                            <label for="productPrice">PRICE</label>
+                            <br>
+                            <input class="edit-modal-input" type="text" id="productPrice" name="productPrice">
+                            <br></br>
+                            <label for="productDescription">DESCRIPTION</label>
+                            <br>
+                            <input class="edit-modal-input" type="text" id="productDescription"
+                                name="productDescription">
+                            <br></br>
+
+                            <label for="imgUrl">PRODUCT IMAGE</label>
+                            <br>
+                            <input class="edit-modal-input" type="text" id="imgUrl" name="imgUrl">
+                            <br></br>
+
+                        </div>
+                        <button type="button" class="btn btn-secondary edit-modal-button1"
+                            data-bs-dismiss="modal">CANCEL</button>
+                        <button id="updateProduct" name="projectButton" type="submit"
+                            class="btn btn-primary edit-modal-button2" data-bs-dismiss="modal">CONFIRM</button>
+
+                    </div>
 
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- End of Post Comment Modal  -->
+        <!-- End of edit Modal  -->
 
-    <!-- Confirm Delete Modal -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="delete-modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel">DELETE LISTING</h5>
-                </div>
-                <div class="delete-modal-body">
-                    <p class="confirm-delete-text">Are you sure you want to delete <br> this listing?</p>
-                    <button type="button" class="btn btn-secondary delete-modal-cancel-button"
-                        data-bs-dismiss="modal">CANCEL</button>
-                    <button id="submitDelete" name="submitDeleteButton" type="submit"
-                        class="btn btn-primary delete-button" data-bs-dismiss="modal">CONFIRM</button>
+        <!-- Post Comment Modal -->
+        <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="commentModalLabel">Post a comment:</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="projectForm">
+                            <label for="productComment">Enter your comment:</label>
+                            <textarea class="form-control" id="productComment" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="submitComment" name="submitCommentButton" type="submit" class="btn btn-primary"
+                            data-bs-dismiss="modal">Submit Comment</button>
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- End of Confirm Delete Modal  -->
+        <!-- End of Post Comment Modal  -->
+
+        <!-- Confirm Delete Modal -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="delete-modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">DELETE LISTING</h5>
+                    </div>
+                    <div class="delete-modal-body">
+                        <p class="confirm-delete-text">Are you sure you want to delete <br> this listing?</p>
+                        <button type="button" class="btn btn-secondary delete-modal-cancel-button"
+                            data-bs-dismiss="modal">CANCEL</button>
+                        <button id="submitDelete" name="submitDeleteButton" type="submit"
+                            class="btn btn-primary delete-button" data-bs-dismiss="modal">CONFIRM</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- End of Confirm Delete Modal  -->
 
 
-    <!-- result div not needed  -->
-    <div id="result" style="display:none"></div>
-    <div id="account-image" style="display:none"></div>
+        <!-- result div not needed  -->
+        <div id="result" style="display:none"></div>
+        <div id="account-image" style="display:none"></div>
 
-    <!-- dont need filter  -->
-    <div id="filter" style="display: none;"></div>
-    <!-- dont need filter  -->
+        <!-- dont need filter  -->
+        <div id="filter" style="display: none;"></div>
+        <!-- dont need filter  -->
 
-    <div id="gallery0" style="display: none;"></div>
-    <div id="gallery1" style="display: none;"></div>
-    <div id="gallery2" style="display: none;"></div>
-    <div id="gallery-swiper" style="display: none;"></div>
-    <div id="username-input" style="display: none;"></div>
-    <div id="edit-password-input" style="display: none;"></div>
-    <div id="profile-description-input" style="display: none;"></div>
-    <div id="profilepic-input" style="display: none;"></div>
-    <!-- jquery -->
-    <script src="https://kit.fontawesome.com/ab86417da5.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <!-- boos=tstraps  -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
-    </script>
+        <div id="gallery0" style="display: none;"></div>
+        <div id="gallery1" style="display: none;"></div>
+        <div id="gallery2" style="display: none;"></div>
+        <div id="gallery-swiper" style="display: none;"></div>
+        <div id="username-input" style="display: none;"></div>
+        <div id="edit-password-input" style="display: none;"></div>
+        <div id="profile-description-input" style="display: none;"></div>
+        <div id="profilepic-input" style="display: none;"></div>
+        <!-- jquery -->
+        <script src="https://kit.fontawesome.com/ab86417da5.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <!-- boos=tstraps  -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+            </script>
 
-    <!-- <script src="js/account.js"></script> -->
-    <script src="js/script.js"></script>
+        <!-- <script src="js/account.js"></script> -->
+        <script src="js/script.js"></script>
 </body>
 
 </html>
